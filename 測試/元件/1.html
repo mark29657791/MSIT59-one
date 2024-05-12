@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Show Hidden Content with Button Disappear</title>
+<style>
+  .hidden-content {
+    display: none;
+  }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<button id="showButton">顯示內容</button>
+
+<div id="hiddenContent" class="hidden-content">
+  <!-- 這裡放要隱藏的內容 -->
+  <p>這是原本頁面上隱藏的內容。</p>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('#showButton').click(function() {
+    $(this).fadeOut();
+    $('#hiddenContent').fadeIn();
+  });
+});
+</script>
+
+</body>
+</html>

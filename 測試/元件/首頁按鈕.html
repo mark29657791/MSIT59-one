@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <style>
-       body{
-           margin: 0;
-           padding: 0;
-       }
+       
         .btn{
+            display: inline-block;
             font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
             cursor: pointer;
             position: relative;
@@ -16,7 +14,7 @@
             font-size: 28px;
             border-top-right-radius: 10px;
             border-bottom-left-radius: 10px;
-            transition: all 1s;
+            transition: all 5s;
             &:after,
             &:before{
                 content: "";
@@ -24,7 +22,7 @@
                 height: 10px;
                 position: absolute;
                 border: 0px solid #fff;
-                transition: all 1s;
+                transition: all 2s;
             }
             &:after{
                 top: -1px;
@@ -49,17 +47,11 @@
             }
             
         }
-        .data-container{
-            background: #91daff;
-            height: 100vh;
-            display: flex;
-            justify-content:center;
-            align-items: center;
-        }
+      
+    
     </style>
 </head>
 <body>
-    <div class="data-container"><span class="btn">TripNa 趣哪</span></div>
-    <link rel="stylesheet" href="style.css">
+    <span class="btn">TripNa 趣哪</span>
 </body>
 </html>
