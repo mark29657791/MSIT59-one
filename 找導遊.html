@@ -1,51 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>趣哪-尋找導遊</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="共用項目.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">準備放logo的地方</a></li>
-                <li><a href="#">旅遊資訊</a></li>
-                <li><a href="#">成為導遊</a></li>
-                <li><a href="#">註冊會員</a></li>  
-                <li><a href="#">會員登入</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div>我們為您推薦以下導遊
-      <hr>
-      <div>
-        <select name="" id="">
-          <option value="">性別</option>
-        </select>
-        <select name="" id="">
-          <option value="">車種</option>
-        </select>
-        <select name="" id="">
-          <option value="">年資</option>
-        </select>
-        <hr>
-        <br>
-        <div>
-            <!-- no1 -->
-            <div>
-                <p>魯夫</p>
-                <button>導遊檔案</button>
-            </div>
-        </div>
-        <div>
-            <button>下單去</button>
-            <p>搜尋結果共有123筆</p>
-        </div>
-        <footer>
+  <title>趣哪-自訂行程</title>
 
-        </footer>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <!-- 自訂 -->
+  <link rel="stylesheet" href="共用項目.css">
+  <script src="行程.js"></script>
+  <script>
+
+  </script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="nav justify-content-end">
+        <li class="nav-item col-2"><a class="nav-link" href="#" style="color: #788402;">準備放logo的地方</a></li>
+        <li class="nav-item col-6"></li>
+        <li class="nav-item col-1"><a class="nav-link" href="#" style="color: #feaa00;">旅遊資訊</a></li>
+        <li class="nav-item col-1"><a class="nav-link" href="#" style="color: #feaa00;">成為導遊</a></li>
+        <li class="nav-item col-1"><a class="nav-link" href="#" style="color: #feaa00;">註冊會員</a></li>
+        <li class="nav-item col-1"><a class="nav-link" href="#" style="color: #f7f4ef;">會員登入</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="nav-center" id="標題" style="color: #feaa00; background-color: #342628; font-size: 1.5rem;">
+    我們為您找到的優秀導遊
+  </div>
+  <div class="row justify-content-center" style="width: 100%;">
+    <div class="col-auto">
+      <select class="form-select" id="">
+        <option value="">性別</option>
+        <option value="taipei">男生</option>
+        <option value="taichung">女生</option>
+        <option value="kaohsiung">其他</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <select class="form-select" id="">
+        <option value="">車種</option>
+        <option value="nature">七人座</option>
+        <option value="culture">五人座</option>
+        <option value="food">其他</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <select class="form-select" id="">
+        <option value="">年資</option>
+        <option value="nature">一年以上</option>
+        <option value="culture">三年以上</option>
+        <option value="food">五年以上</option>
+      </select>
+    </div>
+  </div>
+
+  <hr>
+  <br>
+  
+  <div>
+    <!-- no1 -->
+    <div>
+      <p>魯夫</p>
+      <button>導遊檔案</button>
+    </div>
+  </div>
+  <div>
+    <button>下單去</button>
+    <p>搜尋結果共有123筆</p>
+  </div>
+  <footer>
+
+  </footer>
 </body>
+
 </html>
