@@ -2,7 +2,7 @@ $(function () {
     $("#datepicker").datepicker({
       showAnim: "clip"
     });
-    displaySelectedOptions(); // 日曆選擇時顯示選項內容
+    displaySelectedOptions(); 
   });
   
   function displaySelectedOptions() {
@@ -15,7 +15,7 @@ $(function () {
     $('#locationSelect, #themeSelect, #itinerary1Select, #itinerary2Select, #itinerary3Select').change(function () {
       displaySelectedOptions();
     });
-    displaySelectedOptions(); // 選擇時顯示選項內容
+    displaySelectedOptions(); 
   });
   
   function displaySelectedOptions() {
@@ -29,16 +29,33 @@ $(function () {
     output += '<p>地點: ' + location + '</p>';
     output += '<p>出遊天數: ' + theme + '</p>';
     output += '<p>出發日期: ' + $('#datepicker').val() + '</p>';
-    output += '<p>早上行程: ' + itinerary1 + '</p>';
-    output += '<p>下午行程: ' + itinerary2 + '</p>';
-    output += '<p>晚上行程: ' + itinerary3 + '</p>';// 新增
+    output += '<p>第一天: ' + itinerary1 + '</p>';
+    output += '<p>第二天: ' + itinerary2 + '</p>';
+    output += '<p>第三天: ' + itinerary3 + '</p>';
   
     $('#outputDiv').html(output);
     $(function () {
         $("#datepicker").datepicker({
           showAnim: "clip"
         });
-        displaySelectedOptions(); // 日曆選擇時顯示選項內容
+        displaySelectedOptions(); 
       });
   }
+
+  $(document).ready(function() {
+    $('#themeSelect').change(function() {
+        var days = $(this).val();
+        $('#additional-selects select').addClass('hidden');
+
+        if (days >= 1) {
+            $('#select1').removeClass('hidden');
+        }
+        if (days >= 2) {
+            $('#select2').removeClass('hidden');
+        }
+        if (days == 3) {
+            $('#select3').removeClass('hidden');
+        }
+    });
+});
   

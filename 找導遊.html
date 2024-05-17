@@ -52,6 +52,14 @@
     </div>
     <div class="col-auto">
       <select class="form-select" id="">
+        <option value="">地區</option>
+        <option value="taipei">台北</option>
+        <option value="taichung">台中</option>
+        <option value="kaohsiung">高雄</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <select class="form-select" id="">
         <option value="">車種</option>
         <option value="nature">七人座</option>
         <option value="culture">五人座</option>
@@ -60,30 +68,35 @@
     </div>
     <div class="col-auto">
       <select class="form-select" id="">
-        <option value="">年資</option>
+        <option value="">服務經驗</option>
         <option value="nature">一年以上</option>
         <option value="culture">三年以上</option>
         <option value="food">五年以上</option>
       </select>
     </div>
   </div>
-
-  <hr>
   <br>
-  
-  <div>
-    <!-- no1 -->
-    <div>
-      <p>魯夫</p>
-      <button>導遊檔案</button>
-    </div>
-  </div>
-  <div>
-    <button>下單去</button>
-    <p>搜尋結果共有123筆</p>
-  </div>
-  <footer>
+  <!-- no1 -->
 
+  <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow">
+    <img src="" alt="" class="card-img-top col-2 rounded shadow" style="height: 150px; width: 150px;">
+    <p class="card-text col-4">導遊名字<br>評分<br>服務人數<br>評價<br>金額</p>
+    <button class="btn btn-primary text-center m-2 p-2 rounded shadow"
+      style="width: 120px; height: 50px;">導遊詳情</button>
+  </div>
+
+
+
+
+
+  <div class="row justify-content-center m-3">
+    <div class="col-10" ></div>
+    <button class="btn btn-primary col-2 text-center rounded shadow">下單去</button>
+  </div>
+  
+  <p>搜尋結果共有123筆</p>
+  <footer>
+    123
   </footer>
 </body>
 

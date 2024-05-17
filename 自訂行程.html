@@ -20,15 +20,15 @@
   <!-- 自訂 -->
   <link rel="stylesheet" href="共用項目.css">
   <script src="行程.js"></script>
-  <script>
-
-  </script>
   <style>
     #outputDiv {
       margin-top: 20px;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
+    }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -49,73 +49,101 @@
   </header>
 
   <!-- 標題 -->
-  
-    <div class="nav-center" id="標題" style="color: #feaa00; background-color: #342628; font-size: 1.5rem;">
-      自訂想去的行程
-    </div>
-    <!-- ------------------------------------------------------------------------------ -->
+  <div class="nav-center" id="標題" style="color: #feaa00; background-color: #342628; font-size: 1.5rem;">
+    自訂想去的行程
+  </div>
+
   <!-- 行程 -->
-    <div class="row justify-content-center align-items-center">
-      <div class="col-auto">
-        <select class="form-select" id="locationSelect">
-          <option value="">地點</option>
-          <option value="taipei">台北</option>
-          <option value="taichung">台中</option>
-          <option value="kaohsiung">高雄</option>
-        </select>
-      </div>
-      <div class="col-auto">
-        <select class="form-select" id="themeSelect">
-          <option value="">出遊天數</option>
-          <option value="nature">一日遊</option>
-          <option value="culture">二日遊</option>
-          <option value="food">三日遊</option>
-        </select>
-      </div>
-      <div class="col-auto">
-        <input class="form-control" type="text" id="datepicker" size="30" placeholder="選擇日期">
-      </div>
-      <div class="col-auto">
-        <select class="form-select" id="itinerary1Select">
-          <option value="">選擇行程</option>
-          <option value="itinerary1a">彩虹眷村</option>
-          <option value="itinerary1b">台中市立動物園</option>
-          <option value="itinerary1c">台中國家歌劇院</option>
-        </select>
-      </div>
-      <div class="col-auto">
-        <select class="form-select" id="itinerary2Select">
-          <option value="">選擇行程</option>
-          <option value="itinerary2a">高美濕地</option>
-          <option value="itinerary2b">新社古堡</option>
-          <option value="itinerary2c">潮間帶</option>
-        </select>
-      </div>
-      <div class="col-auto">
-        <select class="form-select" id="itinerary3Select">
-          <option value="">選擇行程</option>
-          <option value="itinerary3a">行程三A</option>
-          <option value="itinerary3b">行程三B</option>
-          <option value="itinerary3c">行程三C</option>
-        </select>
-      </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-auto">
+      <select class="form-select" id="locationSelect">
+        <option value="">地點</option>
+        <option value="taipei">台北</option>
+        <option value="taichung">台中</option>
+        <option value="kaohsiung">高雄</option>
+      </select>
     </div>
-    <!-- 顯示行程 -->
-    <div class="row">
-      <div class="col-1"></div>
-      <div id="outputDiv" class="bg-light rounded shadow col-3"
-      ></div>
+    <div class="col-auto">
+      <select class="form-select">
+        <option value="">人數</option>
+        <option value="1">一人出遊</option>
+        <option value="2">三五好友</option>
+        <option value="3">五人以上</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <select class="form-select" id="themeSelect">
+        <option value="">出遊天數</option>
+        <option value="1">一日遊</option>
+        <option value="2">二日遊</option>
+        <option value="3">三日遊</option>
+      </select>
+    </div>
+   
+    
+    <div class="col-auto">
+      <select class="form-select hidden" id="itinerary1Select">
+        <option value="">第一天</option>
+        <option value="itinerary1c">要吃資料庫</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <select class="form-select hidden" id="itinerary2Select">
+        <option value="">第二天</option>
+        <option value="itinerary2a">高美濕地</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <select class="form-select hidden" id="itinerary3Select">
+        <option value="">第三天</option>
+        <option value="itinerary3a">行程三A</option>
+        <option value="itinerary3b">行程三B</option>
+        <option value="itinerary3c">行程三C</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <input class="form-control" type="text" id="datepicker" size="30" placeholder="選擇日期">
+    </div>
+  </div>
 
+  <!-- 顯示行程 -->
+  <div class="row">
+    <div class="col-1"></div>
+    <div id="outputDiv" class="bg-light rounded shadow col-3"></div>
+  </div>
+  
+  <div class="text-center">
+    <button class="btn btn-primary btn-lg">尋找專屬的導遊</button>
+  </div>
 
-    </div>
-    <div class="text-center">
-      <button class="btn btn-primary btn-lg" >尋找專屬的導遊</button>
-    </div>
   <!-- 頁尾 -->
   <footer class="text-center mt-5 p-3" style="height: 200px;">
     <div class="col-2">2023 趣哪旅遊網</div>
-    
   </footer>
+
+  <script>
+    $(document).ready(function() {
+      $('#themeSelect').change(function() {
+        var days = $(this).val();
+        $('#itinerary1Select, #itinerary2Select, #itinerary3Select').addClass('hidden');
+
+        if (days >= 1) {
+          $('#itinerary1Select').removeClass('hidden');
+        }
+        if (days >= 2) {
+          $('#itinerary2Select').removeClass('hidden');
+        }
+        if (days == 3) {
+          $('#itinerary3Select').removeClass('hidden');
+        }
+      });
+
+      // Initialize datepicker
+      $('#datepicker').datepicker({
+        dateFormat: 'yy-mm-dd'
+      });
+    });
+  </script>
 </body>
 
 </html>
