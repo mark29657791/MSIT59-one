@@ -10,7 +10,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
-  
+
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -27,6 +27,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+
     .hidden {
       display: none;
     }
@@ -50,11 +51,12 @@
 
   <!-- 標題 -->
   <div class="nav-center" id="標題" style="color: #feaa00; background-color: #342628; font-size: 1.5rem;">
-    自訂想去的行程
+    你想趣哪??
   </div>
 
-  <!-- 行程 -->
+  <!-- 行程  生成訂單給會員-->
   <div class="row justify-content-center align-items-center">
+    <!-- 地點 要控制景點-->
     <div class="col-auto">
       <select class="form-select" id="locationSelect">
         <option value="">地點</option>
@@ -63,6 +65,15 @@
         <option value="kaohsiung">高雄</option>
       </select>
     </div>
+    <!-- 類別 -->
+    <div class="col-auto">
+      <select class="form-select" id="locationSelect">
+        <option value="">類別</option>
+        <option value="taipei">遊山</option>
+        <option value="taichung">玩水</option>
+      </select>
+    </div>
+    <!-- 人數 要控制錢-->
     <div class="col-auto">
       <select class="form-select">
         <option value="">人數</option>
@@ -71,6 +82,7 @@
         <option value="3">五人以上</option>
       </select>
     </div>
+    <!-- 天數 要控制時間選擇 -->
     <div class="col-auto">
       <select class="form-select" id="themeSelect">
         <option value="">出遊天數</option>
@@ -79,8 +91,8 @@
         <option value="3">三日遊</option>
       </select>
     </div>
-   
-    
+
+    <!-- 每一天的行程 要控制景點選擇 -->
     <div class="col-auto">
       <select class="form-select hidden" id="itinerary1Select">
         <option value="">第一天</option>
@@ -90,30 +102,38 @@
     <div class="col-auto">
       <select class="form-select hidden" id="itinerary2Select">
         <option value="">第二天</option>
-        <option value="itinerary2a">高美濕地</option>
+        <option value="itinerary2a">要吃資料庫</option>
       </select>
     </div>
     <div class="col-auto">
       <select class="form-select hidden" id="itinerary3Select">
         <option value="">第三天</option>
-        <option value="itinerary3a">行程三A</option>
-        <option value="itinerary3b">行程三B</option>
-        <option value="itinerary3c">行程三C</option>
+        <option value="itinerary3a">要吃資料庫</option>
+
       </select>
     </div>
-    <div class="col-auto">
-      <input class="form-control" type="text" id="datepicker" size="30" placeholder="選擇日期">
-    </div>
+  </div>
+  <br>
+  <div class="row justify-content-center align-items-center">
+    <label for="from" class="col-1 text-center ">出發日期</label>
+    <input type="text" id="from" name="from" class="col-2 text-center rounded">
+    <label for="to" class="col-1 text-center"> 結束日期</label>
+    <input type="text" id="to" name="to" class="col-1 text-center rounded">
   </div>
 
   <!-- 顯示行程 -->
   <div class="row">
-    <div class="col-1"></div>
-    <div id="outputDiv" class="bg-light rounded shadow col-3"></div>
+    <div class="col-3"></div>
+    <div id="outputDiv" class="bg-light rounded shadow col-6 text-center"></div>
   </div>
-  
-  <div class="text-center">
-    <button class="btn btn-primary btn-lg">尋找專屬的導遊</button>
+
+  <br>
+
+  <div class="row">
+    <div class="col-8"></div>
+    <button class="btn btn-primary btn-block col-1 shadow ">尋找導遊</button>
+    <div class="col-3"></div>
+
   </div>
 
   <!-- 頁尾 -->
@@ -121,29 +141,7 @@
     <div class="col-2">2023 趣哪旅遊網</div>
   </footer>
 
-  <script>
-    $(document).ready(function() {
-      $('#themeSelect').change(function() {
-        var days = $(this).val();
-        $('#itinerary1Select, #itinerary2Select, #itinerary3Select').addClass('hidden');
 
-        if (days >= 1) {
-          $('#itinerary1Select').removeClass('hidden');
-        }
-        if (days >= 2) {
-          $('#itinerary2Select').removeClass('hidden');
-        }
-        if (days == 3) {
-          $('#itinerary3Select').removeClass('hidden');
-        }
-      });
-
-      // Initialize datepicker
-      $('#datepicker').datepicker({
-        dateFormat: 'yy-mm-dd'
-      });
-    });
-  </script>
 </body>
 
 </html>
