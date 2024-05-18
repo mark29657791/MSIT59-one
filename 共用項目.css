@@ -1,13 +1,14 @@
 body {
-      background-color: #f7f4ef;
+      background-color: #dee0fb;
+      font-family: "Noto Serif TC", serif;
     }
 
     header {
-      background-color: #342628;
+      background-color: #e8eafe;
       padding: 10px;
     }
       footer {
-        background-color:#342628 ;
+        background-color:#4e5482;
         color: #fefefe;
         text-align: center;
         padding: 10px;
