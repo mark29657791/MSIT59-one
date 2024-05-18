@@ -38,16 +38,83 @@
       </ul>
     </nav>
   </header>
+
   <div class="nav-center" id="標題" style="color: #feaa00; background-color: #342628; font-size: 1.5rem;">
-   訂單結帳
+    訂單結帳
   </div>
 
 
-  <hr>
-  <br>
-  
-  <footer>
+  <!-- 訂單資訊 -->
+  <div style="width: 50%; margin: 0 auto">
+    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow">
+      <p class="col-2 ">訂單產品</p>
+      <p class="col-2">人數</p>
+      <p class="col-2">單價</p>
+      <p class="col-2"></p>
+      <hr>
+      <p class="col-2 ">台中一日遊</p>
+      <p class="col-2">2</p>
+      <p class="col-2" id="">1000</p>
+      <p class="col-2"></p>
+      <hr>
+      <p class="col-2 "></p>
+      <p class="col-2"></p>
+      <p class="col-2"></p>
+      <p class="col-2">訂單金額:(吃金額id)</p>
+    </div>
+  </div>
 
+  <div style="width: 50%; margin: 0 auto">
+    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow">
+      <form class="col-12">
+        <div class="row mb-3">
+          <p class="col-2">付款方式</p>
+          <div class="col-10">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="payment_method" id="bank_transfer"
+                value="bank_transfer">
+              <label class="form-check-label" for="bank_transfer">轉帳付款</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="payment_method" id="credit_card" value="credit_card">
+              <label class="form-check-label" for="credit_card">信用卡</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="payment_method" id="line_pay" value="line_pay">
+              <label class="form-check-label" for="line_pay">Line Pay</label>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row mb-3">
+          <p class="col-2"></p>
+          <div class="col-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="bank_account" id="taipei_fubon" value="taipei_fubon">
+              <label class="form-check-label" for="taipei_fubon">
+                <img src="jcb_logo.png" alt="JCB Logo" style="width: 30px; height: auto;"> 台北富邦銀行 **** 7655
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="bank_account" id="sinopac" value="sinopac">
+              <label class="form-check-label" for="sinopac">
+                <img src="jcb_logo.png" alt="JCB Logo" style="width: 30px; height: auto;"> 星展銀行 **** 7655
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center m-3 p-3">
+    <div class="col-2">
+      <button class="btn btn-primary btn-block shadow">確認訂單</button>
+    </div>
+  </div>
+
+
+  <footer>
+    123
   </footer>
 </body>
 
