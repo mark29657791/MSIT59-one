@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>趣哪-自訂行程</title>
+  <title>趣哪-推薦導遊</title>
   <!-- 字體 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,16 +25,64 @@
   <!-- 自訂 -->
   <link rel="stylesheet" href="共用項目.css">
   <script src="行程.js"></script>
+
+  <!-- css
+   -->
   <style>
-    /* 天數先隱藏 */
-    #outputDiv {
-      margin-top: 20px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    /* 照片 */
+    #gallery {
+      float: left;
+      width: 65%;
+      min-height: 12em;
     }
 
-    .hidden {
+    .gallery.custom-state-active {
+      background: #eee;
+    }
+
+    .gallery li {
+      float: left;
+      width: 96px;
+      padding: 0.4em;
+      margin: 0 0.4em 0.4em 0;
+      text-align: center;
+    }
+
+    .gallery li h5 {
+      margin: 0 0 0.4em;
+      cursor: move;
+    }
+
+    .gallery li a {
+      float: right;
+    }
+
+    .gallery li a.ui-icon-zoomin {
+      float: left;
+    }
+
+    .gallery li img {
+      width: 100%;
+      cursor: move;
+    }
+
+    #trash {
+      float: right;
+      width: 32%;
+      min-height: 18em;
+      padding: 1%;
+    }
+
+    #trash h4 {
+      line-height: 16px;
+      margin: 0 0 0.4em;
+    }
+
+    #trash h4 .ui-icon {
+      float: left;
+    }
+
+    #trash .gallery h5 {
       display: none;
     }
   </style>
@@ -64,7 +112,7 @@
   </div>
 
   <!-- 行程  生成訂單給會員-->
-  <div class="row justify-content-center align-items-center">
+  <div class="row justify-content-center align-items-center m-3">
     <!-- 地點 要控制景點-->
     <div class="col-auto">
       <select class="form-select" id="locationSelect">
@@ -72,16 +120,17 @@
         <option value="taipei">台北</option>
         <option value="taichung">台中</option>
         <option value="kaohsiung">高雄</option>
+
       </select>
     </div>
     <!-- 類別 -->
-    <div class="col-auto">
+    <!-- <div class="col-auto">
       <select class="form-select" id="locationSelect">
         <option value="">類別</option>
         <option value="taipei">遊山</option>
         <option value="taichung">玩水</option>
       </select>
-    </div>
+    </div> -->
     <!-- 人數 要控制錢-->
     <div class="col-auto">
       <select class="form-select">
@@ -100,42 +149,58 @@
         <option value="3">三日遊</option>
       </select>
     </div>
-
-    <!-- 每一天的行程 要控制景點選擇 -->
-    <div class="col-auto">
-      <select class="form-select hidden" id="itinerary1Select">
-        <option value="">第一天</option>
-        <option value="itinerary1c">要吃資料庫</option>
-      </select>
-    </div>
-    <div class="col-auto">
-      <select class="form-select hidden" id="itinerary2Select">
-        <option value="">第二天</option>
-        <option value="itinerary2a">要吃資料庫</option>
-      </select>
-    </div>
-    <div class="col-auto">
-      <select class="form-select hidden" id="itinerary3Select">
-        <option value="">第三天</option>
-        <option value="itinerary3a">要吃資料庫</option>
-
-      </select>
-    </div>
-  </div>
-  <br>
-  <!-- 日期 -->
-  <div class="row justify-content-center align-items-center">
+    <!-- 日期選擇器 -->
     <label for="from" class="col-1 text-center ">出發日期:</label>
     <input type="text" id="from" name="from" class="col-1 text-center rounded">
-    <label for="to" class="col-1 text-center"> 結束日期</label>
+    <label for="to" class="col-1 text-center"> 結束日期:</label>
     <input type="text" id="to" name="to" class="col-1 text-center rounded">
   </div>
+  </div>
+  <br>
+
+
 
   <!-- 顯示行程 -->
-  <div class="row">
-    <div class="col-3"></div>
-    <div id="outputDiv" class="bg-light rounded shadow col-6 text-center"></div>
+  <div class="ui-widget ui-helper-clearfix">
+
+    <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+      <li class="ui-widget-content ui-corner-tr">
+        <h5 class="ui-widget-header">High Tatras</h5>
+        <img src="images/high_tatras_min.jpg" alt="The peaks of High Tatras" width="96" height="72">
+        <a href="images/high_tatras.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+        <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image"
+          class="ui-icon ui-icon-trash">Delete image</a>
+      </li>
+      <li class="ui-widget-content ui-corner-tr">
+        <h5 class="ui-widget-header">High Tatras 2</h5>
+        <img src="images/high_tatras2_min.jpg" alt="The chalet at the Green mountain lake" width="96" height="72">
+        <a href="images/high_tatras2.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+        <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image"
+          class="ui-icon ui-icon-trash">Delete image</a>
+      </li>
+      <li class="ui-widget-content ui-corner-tr">
+        <h5 class="ui-widget-header">High Tatras 3</h5>
+        <img src="images/high_tatras3_min.jpg" alt="Planning the ascent" width="96" height="72">
+        <a href="images/high_tatras3.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+        <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image"
+          class="ui-icon ui-icon-trash">Delete image</a>
+      </li>
+      <li class="ui-widget-content ui-corner-tr">
+        <h5 class="ui-widget-header">High Tatras 4</h5>
+        <img src="images/high_tatras4_min.jpg" alt="On top of Kozi kopka" width="96" height="72">
+        <a href="images/high_tatras4.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+        <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image"
+          class="ui-icon ui-icon-trash">Delete image</a>
+      </li>
+    </ul>
+
+    <div id="trash" class="ui-widget-content ui-state-default">
+      <h4 class="ui-widget-header"><span class="ui-icon ui-icon-trash">Trash</span> Trash</h4>
+    </div>
+
   </div>
+
+
 
   <br>
 
@@ -143,15 +208,12 @@
     <div class="col-8"></div>
     <button class="btn btn-primary btn-block col-1 shadow ">尋找導遊</button>
     <div class="col-3"></div>
-
   </div>
 
   <!-- 頁尾 -->
   <footer class="text-center mt-5 p-3" style="height: 200px;">
     <div class="col-2">2023 趣哪旅遊網</div>
   </footer>
-
-
 </body>
 
 </html>

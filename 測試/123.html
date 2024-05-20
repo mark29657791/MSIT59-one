@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自訂旅遊行程</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #destination-images img {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+            cursor: grab;
+        }
+        #itinerary .item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">自訂旅遊行程</h1>
+        <form id="custom-trip-form">
+            <div class="form-group">
+                <label for="region">選擇地區：</label>
+                <select id="region" name="region" class="form-control">
+                    <option value="asia">亞洲</option>
+                    <option value="europe">歐洲</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="category">選擇類別：</label>
+                <select id="category" name="category" class="form-control">
+                    <option value="adventure">探險</option>
+                    <option value="culture">文化</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="days">選擇天數：</label>
+                <input type="number" id="days" name="days" min="1" class="form-control">
+            </div>
+            <div id="destination-images" class="mt-4 d-flex"></div>
+            <div id="itinerary" class="mt-4"></div>
+            <button type="submit" class="btn btn-primary">提交</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
