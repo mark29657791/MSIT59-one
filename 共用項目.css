@@ -1,48 +1,72 @@
-body {
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+    body 
+    {
       background-color: #dee0fb;
       font-family: "Noto Serif TC", serif;
     }
 
-    header {
+    header 
+    {
       background-color: #e8eafe;
       padding: 10px;
+      animation: fadeIn 0.5s ease-in-out;
     }
-      footer {
-        background-color:#4e5482;
-        color: #fefefe;
-        text-align: center;
-        padding: 10px;
-        margin-bottom: 0;
-      }
+
+    footer
+    {
+      background-color:#4e5482;
+      color: #fefefe;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 0;
+      animation: fadeIn 1.5s ease-in-out;
+    }
 
 
-    .nav-center {
+    .nav-center
+   {
       text-align: center;
       font-size: 1.2rem;
       font-weight: bold;
       margin-bottom: 20px;
+      animation: fadeIn 3s ease-in-out;
     }
 
-    .form-select {
+    .form-select 
+    {
       margin: 10px;
       border-radius: 20px;
       padding: 10px 20px;
+      animation: fadeIn 3s ease-in-out;
+
     }
 
-    button {
-      background-color: #007bff;
-      color: #c7cf98;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-top: 20px;
-    }
 
-    #標題 {
+
+    #標題
+     {
       background-color: #ffffff;
       height: 150px; 
       line-height: 150px; 
+      animation: fadeIn 1.5s ease-in-out;
+      }
+    div.scroll-container 
+    {
+      background-color: #333;
+      overflow: auto;
+      white-space: nowrap;
+      padding: 10px;
     }
+
+div.scroll-container img {
+  padding: 10px;
+}
     

@@ -34,15 +34,15 @@
 <body>
   <header>
     <nav>
-      <ul class="nav justify-content-end">
-        <li class="nav-item col-1">
+      <ul class="nav justify-content-end align-items-center text-center">
+        <li class="nav-item col-1 ">
           <img src="123.png" alt="測試圖片" style="width: 200px;">
         </li>
         <li class="nav-item col-7"></li>
-        <li class="nav-item col-1"><a class="nav-link" href="#" style="color: #171E60;">旅遊資訊</a></li>
-        <li class="nav-item col-1"><a class="nav-link" href="#" style="color: #171E60;">成為導遊</a></li>
-        <li class="nav-item col-1"><a class="nav-link" href="#" style="color: #171E60;">註冊會員</a></li>
-        <li class="nav-item col-1"><a class="nav-link" href="#" style="color: #171E60;">會員登入</a></li>
+        <li class="nav-item col-1"><a class="nav-link fs-5" href="#" style="color: #171E60;">景點介紹</a></li>
+        <li class="nav-item col-1"><a class="nav-link fs-5" href="#" style="color: #171E60;">旅遊資訊</a></li>
+        <li class="nav-item col-1"><a class="nav-link fs-5" href="#" style="color: #171E60;">客製行程</a></li>
+        <li class="nav-item col-1"><a class="nav-link fs-5" href="#" style="color: #171E60;">會員登入</a></li>
       </ul>
     </nav>
   </header>
@@ -79,13 +79,13 @@
       </select>
     </div>
     <!-- 類型 -->
-    <div class="col-auto">
+    <!-- <div class="col-auto">
       <select class="form-select" id="">
         <option value="">類別</option>
         <option value="">遊山</option>
         <option value="nature">玩水</option>
       </select>
-    </div>
+    </div> -->
   </div>
   <br>
   <!-- 放幾個導遊-->
@@ -98,11 +98,35 @@
       <button class="btn btn-primary text-center m-2 p-2 rounded shadow"
         style="width: 120px; height: 50px;">導遊詳情</button>
     </div>
+    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow">
+      <img src="" alt="" class="card-img-top  rounded shadow" style="height: 100px; width: 150px;">
+      <p class="card-text col-7">
+        導遊名字<br>評分<br>服務人數<br>評價金額
+      </p>
+      <button class="btn btn-primary text-center m-2 p-2 rounded shadow"
+        style="width: 120px; height: 50px;">導遊詳情</button>
+    </div>
+    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow">
+      <img src="" alt="" class="card-img-top  rounded shadow" style="height: 100px; width: 150px;">
+      <p class="card-text col-7">
+        導遊名字<br>評分<br>服務人數<br>評價金額
+      </p>
+      <button class="btn btn-primary text-center m-2 p-2 rounded shadow"
+        style="width: 120px; height: 50px;">導遊詳情</button>
+    </div>
+    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow">
+      <img src="" alt="" class="card-img-top  rounded shadow" style="height: 100px; width: 150px;">
+      <p class="card-text col-7">
+        導遊名字<br>評分<br>服務人數<br>評價金額
+      </p>
+      <button class="btn btn-primary text-center m-2 p-2 rounded shadow"
+        style="width: 120px; height: 50px;">導遊詳情</button>
+    </div>
   </div>
   <br>
   <div class="row justify-content-center m-3">
     <div class="col-8"></div>
-    <button class="btn btn-primary col-1 text-center rounded shadow">下單去</button>
+    <button class="btn btn-primary col-1 text-center rounded shadow m-3">下單去</button>
     <div class="col-2"></div>
   </div>
   <br>
@@ -116,9 +140,37 @@
   <br>
 
   <!-- 頁尾 -->
-  <footer>
-    <div class="col-2">2023 趣哪旅遊網</div>
-  </footer>
+    <footer class="text-center mt-5 p-3 shadow" style="height: 200px;">
+      <div class="row justify-content-center align-items-center text-center m-3">
+        <div class="col-3">
+          <h5>關於我們</h5>
+          <hr>
+          <ul class="list-unstyled">
+            <li class="mb-1">趣哪:旅遊網站</li>
+            <li class="mb-1">可以自訂行程</li>
+            <li class="mb-1">也可以媒合導遊</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <h5>聯絡我們</h5>
+          <hr>
+          <ul class="list-unstyled">
+            <li class="mb-1">電話: 123-456-7890</li>
+            <li class="mb-1">地址: 123 Main Street, Anytown, USA</li>
+            <li class="mb-1">Email: 8bXrN@example.com</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <h5>社群媒體</h5>
+          <hr>
+          <ul class="list-unstyled">
+            <li class="mb-1">Facebook</li>
+            <li class="mb-1">Twitter</li>
+            <li class="mb-1">Instagram</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
 </body>
 
 </html>
