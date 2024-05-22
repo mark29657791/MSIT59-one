@@ -99,7 +99,7 @@
       border: none;
       font-size: 1.2rem;
       font-weight: bold;
-      animation: fadeIn 5s ease-in-out;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .ui-widget-content {
@@ -150,16 +150,15 @@
   </style>
 </head>
 
-<body background="" style=" background-size: 100% 100%;">
+<body background="">
   <!-- 頁首 -->
   <header>
-    <div class="container-fluid px-0 ">
+    <div class="container-fluid px-0">
       <div class="row row-cols-1">
         <div class="col">
           <div class="col fixed-top"> <!-- 固定上方 -->
-
             <nav class="navbar navbar-expand-sm " id="head">
-              <img src="logo.png" alt="" width="200px">
+              <img class="" src="logo.png" alt="" width="200px">
               <div class="container-fluid justify-content-end  px-0">
                 <!-- 大小切換 -->
                 <button type="button" class="btn btn-outline-secondary m-1" id="big">大</button>
@@ -181,11 +180,11 @@
                 </ul>
               </div>
             </nav>
-          </div>
+          </div>  
   </header>
   <!-- 標題 -->
-  <div class="nav-center" id="標題" style="color:#4e5482; font-size: 36px;margin-top: 5%;">
-    自訂想去的行程
+  <div class="nav-center" id="標題" style="color:#e3e5f4; background-color:#4e5482; font-size: 36px;margin-top: 5%;">
+    自訂想去的行程 
   </div>
 
   <!-- 行程  生成訂單給會員-->
@@ -228,8 +227,6 @@
     <!-- 日期選擇器 -->
     <label for="from" class="col-1 text-center" id="from1">出發日期:</label>
     <input type="text" id="from" name="from" class="col-1 text-center rounded">
-    <label for="to" class="col-1 text-center" id="to1"> 結束日期:</label>
-    <input type="text" id="to" name="to" class="col-1 text-center rounded">
   </div>
   </div>
   <br>
@@ -237,8 +234,8 @@
 
 
   <!-- 顯示行程 -->
-  <h5 class="text-center" id="標題2">可以拖曳來安排行程喔</h5>
-  <div class="d-flex justify-content-center m-3" >
+  <h5 class="text-center" id="標題2" >可以拖曳來安排行程喔</h5>
+  <div class="d-flex justify-content-center m-3 p-3 " >
     <div class="row justify-content-center m-3 text-center" style="width: 60%;">
       <div class="col-3">
         <div id="trash-morning" class="ui-widget-content ui-state-default">
@@ -265,7 +262,7 @@
 
   <!-- 照片 -->
   
-  <div class="container">
+  <div class="container" >
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6" style="background-color: #fff; width: 80%;">
             <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">

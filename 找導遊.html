@@ -31,17 +31,17 @@
       0% {
         opacity: 0;
       }
+
       100% {
         opacity: 1;
       }
     }
 
-    #card
-    {
+    #card {
       animation: fadeIn 3s ease-in-out;
     }
-    #select
-    {
+
+    #select {
       animation: fadeIn 2s ease-in-out;
     }
   </style>
@@ -78,36 +78,36 @@
             </nav>
           </div>
   </header>
-  <div class="nav-center" id="標題" style="color: #4e5482;  font-size: 36px;margin-top: 5%;">
-    我們為您推薦的導遊
+  <div class="nav-center" id="標題" style="color:#e3e5f4; background-color:#4e5482;   font-size: 36px;margin-top: 5%;">
+    我們為您推薦的導遊 
   </div>
-  
+
   <!-- 選擇 -->
   <div class="row justify-content-center" style="width: 100%;" id="select">
     <div class="col-auto">
       <select class="form-select" id="select">
         <option value="">性別</option>
-        <option value="taipei">男生</option>
-        <option value="taichung">女生</option>
-        <option value="kaohsiung">不限</option>
+        <option value="">男生</option>
+        <option value="">女生</option>
+        <option value="">不限</option>
       </select>
     </div>
     <!-- 地區 -->
     <div class="col-auto">
       <select class="form-select" id="">
-        <option value="">地區</option>
-        <option value="taipei">台北</option>
-        <option value="taichung">台中</option>
-        <option value="kaohsiung">高雄</option>
+        <option value="">評價</option>
+        <option value="">5星</option>
+        <option value="">4星</option>
+        <option value="">3星</option>
       </select>
     </div>
     <!-- 服務經驗 -->
     <div class="col-auto">
       <select class="form-select" id="">
         <option value="">服務經驗</option>
-        <option value="nature">一年以上</option>
-        <option value="culture">三年以上</option>
-        <option value="food">五年以上</option>
+        <option value="">一年以上</option>
+        <option value="">三年以上</option>
+        <option value="">五年以上</option>
       </select>
     </div>
     <!-- 類型 -->
@@ -122,39 +122,50 @@
   <br>
   <!-- 放幾個導遊-->
   <div style="width: 60%; margin: 0 auto" id="card">
-    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow">
-      <img src="" alt="" class="card-img-top  rounded shadow" style="height: 100px; width: 150px;">
+    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow position-relative">
+      <img src="" alt="" class="card-img-top rounded shadow" style="height: 100px; width: 150px;">
       <p class="card-text col-7">
-        導遊名字<br>評分<br>服務人數<br>評價金額
+        導遊名字<br>評分<br>服務人數<br>評價金額<br>可複選讓導遊決定是否接單
       </p>
       <button class="btn btn-primary text-center m-2 p-2 rounded shadow"
         style="width: 120px; height: 50px;">導遊詳情</button>
+      <input type="checkbox" class="form-check-input m-2 p-2 rounded shadow position-absolute bottom-0 end-0">
     </div>
-
-
-    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow">
-      <img src="" alt="" class="card-img-top  rounded shadow" style="height: 100px; width: 150px;">
+    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow position-relative">
+      <img src="" alt="" class="card-img-top rounded shadow" style="height: 100px; width: 150px;">
       <p class="card-text col-7">
         導遊名字<br>評分<br>服務人數<br>評價金額
       </p>
       <button class="btn btn-primary text-center m-2 p-2 rounded shadow"
         style="width: 120px; height: 50px;">導遊詳情</button>
+      <input type="checkbox" class="form-check-input m-2 p-2 rounded shadow position-absolute bottom-0 end-0">
     </div>
-    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow">
-      <img src="" alt="" class="card-img-top  rounded shadow" style="height: 100px; width: 150px;">
+    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow position-relative">
+      <img src="" alt="" class="card-img-top rounded shadow" style="height: 100px; width: 150px;">
       <p class="card-text col-7">
         導遊名字<br>評分<br>服務人數<br>評價金額
       </p>
       <button class="btn btn-primary text-center m-2 p-2 rounded shadow"
         style="width: 120px; height: 50px;">導遊詳情</button>
+      <input type="checkbox" class="form-check-input m-2 p-2 rounded shadow position-absolute bottom-0 end-0">
     </div>
-    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow">
-      <img src="" alt="" class="card-img-top  rounded shadow" style="height: 100px; width: 150px;">
+    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow position-relative">
+      <img src="" alt="" class="card-img-top rounded shadow" style="height: 100px; width: 150px;">
       <p class="card-text col-7">
         導遊名字<br>評分<br>服務人數<br>評價金額
       </p>
       <button class="btn btn-primary text-center m-2 p-2 rounded shadow"
         style="width: 120px; height: 50px;">導遊詳情</button>
+      <input type="checkbox" class="form-check-input m-2 p-2 rounded shadow position-absolute bottom-0 end-0">
+    </div>
+    <div class="d-flex row justify-content-center m-3 p-3 bg-light rounded shadow position-relative">
+      <img src="" alt="" class="card-img-top rounded shadow" style="height: 100px; width: 150px;">
+      <p class="card-text col-7">
+        導遊名字<br>評分<br>服務人數<br>評價金額
+      </p>
+      <button class="btn btn-primary text-center m-2 p-2 rounded shadow"
+        style="width: 120px; height: 50px;">導遊詳情</button>
+      <input type="checkbox" class="form-check-input m-2 p-2 rounded shadow position-absolute bottom-0 end-0">
     </div>
   </div>
   <br>

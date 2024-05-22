@@ -1,11 +1,13 @@
 $(function() {
   // 日期選擇
-  var dateFormat = "mm/dd/yy",
+  var dateFormat = "yy/mm/dd",  // 修改日期格式为 年/月/日
     from = $("#from")
       .datepicker({
         defaultDate: "+1w",
         changeMonth: true,
-        numberOfMonths: 1
+        numberOfMonths: 1,
+        minDate: 0,  // 设置最小日期为今天
+        dateFormat: dateFormat  // 应用新的日期格式
       })
       .on("change", function() {
         to.datepicker("option", "minDate", getDate(this));
@@ -14,24 +16,24 @@ $(function() {
       .datepicker({
         defaultDate: "+1w",
         changeMonth: true,
-        numberOfMonths: 1
+        numberOfMonths: 1,
+        minDate: 0,  // 设置最小日期为今天
+        dateFormat: dateFormat  // 应用新的日期格式
       })
       .on("change", function() {
         from.datepicker("option", "maxDate", getDate(this));
       });
 
-      function getDate(element) {
-        var date; // 宣告一個變數 date 用來儲存日期值
-        try {
-            // 嘗試使用 jQuery UI 的日期選擇器（datepicker）解析日期值
-            // 使用 dateFormat 變數來作為日期的格式
-            date = $.datepicker.parseDate(dateFormat, element.value);
-        } catch (error) {
-            // 如果解析過程中有錯誤，將 date 設為 null
-            date = null;
-        }
-        return date; // 回傳解析後的日期物件
+function getDate(element) {
+    var date;
+    try {
+        date = $.datepicker.parseDate(dateFormat, element.value);
+    } catch (error) {
+        date = null;
     }
+    return date;
+}
+
     
 // ------------------------------------------------------------------------------------------------------------------------------------------
   // 景點列表
@@ -56,7 +58,7 @@ $(function() {
       { name: "蓮池潭", img: "https://tripool-article-production.s3.ap-southeast-1.amazonaws.com/uploads/article/cover_image/101/Lotus_Pond__%E8%93%AE%E6%B1%A0%E6%BD%AD_-040.jpg", alt: "Lotus Pond" },
       { name: "西子灣", img: "https://www.taiwan.net.tw/pic.ashx?qp=1/big_scenic_spots/pic_624_15.jpg&sizetype=3", alt: "Sizihwan Bay" },
       { name: "六合夜市", img: "https://cdn2.ettoday.net/images/3873/d3873357.jpg", alt: "Liuhe Night Market" }
-    ]
+    ],
   };
 
   // 根據選擇的地點更新景點列表

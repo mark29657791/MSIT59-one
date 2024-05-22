@@ -43,6 +43,7 @@
 
     .nav-center
     {
+      
       text-align: center;
       font-size: 1.2rem;
       font-weight: bold;
@@ -54,6 +55,7 @@
 
       #標題,#標題2
      {
+      
       background-color: #dee0fb;
       height: 150px; 
       line-height: 150px; 
