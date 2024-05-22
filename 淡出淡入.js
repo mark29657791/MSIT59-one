@@ -1,3 +1,4 @@
+//頁尾淡出淡入
 document.addEventListener("DOMContentLoaded",function(){
   var footer = document.getElementById('footer');
   var isVisible = false;

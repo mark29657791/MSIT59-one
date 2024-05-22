@@ -166,7 +166,7 @@ function recycleImage($item) {
       $target = $(event.target);
 
     // 判斷點擊的是哪個按鈕
-    if ($target.is("a.ui-icon-trash")) { // 刪除按鈕
+    if ($target.is("a.ui-icon-trash")) { 
       deleteImage($item);
     } else if ($target.is("a.ui-icon-zoomin")) { // 放大按鈕
       viewLargerImage($target);
@@ -205,4 +205,7 @@ function recycleImage($item) {
 
 // ------------------------------------------------------------------------------------------------------------------------------------------
 
-
+const button = document.getElementById('findbtn');
+button.addEventListener('click', function() {
+  window.location.href = '找導遊.html';
+});
