@@ -10,6 +10,7 @@
     body
     {
       font-family: "Noto Serif TC", serif;
+      background-color: #dee0fb;
     }
     
 
@@ -53,7 +54,7 @@
 
       #標題,#標題2
      {
-      background-color: #ffffff;
+      background-color: #dee0fb;
       height: 150px; 
       line-height: 150px; 
       animation: fadeIn 3.5s ease-in-out;
