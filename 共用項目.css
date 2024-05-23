@@ -37,10 +37,10 @@
       text-align: center;
       padding: 10px;
       margin-bottom: 0;
-      animation: fadeIn 6.5s ease-in-out;
+      animation: fadeIn 1s ease-in-out;
     }
 
-
+    /* 標題 */
     .nav-center
     {
       
@@ -55,7 +55,6 @@
 
       #標題,#標題2
      {
-      
       background-color: #dee0fb;
       height: 150px; 
       line-height: 150px; 
