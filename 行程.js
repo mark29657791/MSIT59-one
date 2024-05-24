@@ -60,6 +60,7 @@ $(function() {
             initializeDraggable(); // 初始化圖庫項目的可拖動功能
         }
     });
+    
 
     // 初始化圖庫項目的可拖動功能的函數
     function initializeDraggable() {

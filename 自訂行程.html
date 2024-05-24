@@ -156,8 +156,8 @@
 
         /* 手風琴樣式 */
         .accordion {
-            background-color: #eee;
-            color: #444;
+            background-color: #4e5482;
+            color: #bdbdbd;
             cursor: pointer;
             padding: 18px;
             width: 100%;
@@ -170,7 +170,8 @@
 
         .active,
         .accordion:hover {
-            background-color: #ccc;
+            background-color: #d2b6fa;
+            color: #121111;
         }
 
         .panel {
@@ -197,6 +198,9 @@
                                 <button type="button" class="btn btn-outline-secondary m-1" id="big">大</button>
                                 <button type="button" class="btn btn-outline-secondary m-2" id="sm">小</button>
                                 <!-- 頁首 -->
+                                <ul>
+
+                                </ul>
                                 <ul class="navbar-nav ">
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">旅遊資訊</a>
@@ -222,7 +226,7 @@
         自訂想去的行程
     </div>
 
-<!-- -------------------------------------------------------------------------------------------------------- -->
+    <!-- -------------------------------------------------------------------------------------------------------- -->
     <!-- 行程  生成訂單給會員-->
     <div class="row justify-content-center align-items-center m-3">
         <!-- 地點 要控制景點-->
@@ -260,8 +264,7 @@
         <input type="text" id="datepicker" class="form-control col-md-auto text-center " style="width: 200px;">
     </div>
     </div>
-<!-- -------------------------------------------------------------------------------------------------------- -->
-    
+    <!-- -------------------------------------------------------------------------------------------------------- -->
 
 
 
@@ -269,7 +272,8 @@
 
 
 
-<!-- -------------------------------------------------------------------------------------------------------- -->
+
+    <!-- -------------------------------------------------------------------------------------------------------- -->
 
     <!-- 顯示行程 -->
     <div class="row align-items-center m-3 ">
@@ -280,24 +284,24 @@
                     <div class="d-flex justify-content-center m-3 p-3 ">
                         <div class="row justify-content-center m-3 text-center" style="width: 100%;">
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon  ui-icon-calendar"></span>早上</h4>
                                 <div id="first-day-morning" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon  ui-icon-calendar"></span>早上</h4>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
                                 <div id="first-day-afternoon" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
                                 <div id="first-day-evening" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
                                 <div id="first-day-night" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
                                 </div>
                             </div>
                         </div>
@@ -309,25 +313,25 @@
             <div class="panel" id="panel2">
                 <div class="col-sm-5 col-lg-12">
                     <div class="d-flex justify-content-center m-3 p-3 ">
-                        <div class="row justify-content-center m-3 text-center" style="width: 60%;">
+                        <div class="row justify-content-center m-3 text-center" style="width: 100%;">
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon  ui-icon-calendar"></span>早上</h4>
                                 <div id="second-day-morning" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon  ui-icon-calendar"></span>早上</h4>
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
                                 <div id="second-day-afternoon" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
                                 <div id="second-day-evening" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
                                 <div id="second-day-night" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
                                 </div>
                             </div>
                         </div>
@@ -339,25 +343,25 @@
             <div class="panel" id="panel3">
                 <div class="col-sm-5 col-lg-12">
                     <div class="d-flex justify-content-center m-3 p-3 ">
-                        <div class="row justify-content-center m-3 text-center" style="width: 60%;">
+                        <div class="row justify-content-center m-3 text-center" style="width: 100%;">
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon  ui-icon-calendar"></span>早上</h4>
                                 <div id="third-day-morning" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon  ui-icon-calendar"></span>早上</h4>
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
                                 <div id="third-day-afternoon" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
                                 <div id="third-day-evening" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
                                 <div id="third-day-night" class="ui-widget-content ui-state-default">
-                                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
                                 </div>
                             </div>
                         </div>
@@ -365,9 +369,9 @@
                 </div>
             </div>
         </div>
-        
-         <!-- 景點照片 -->
-         <div class="col-sm-5 col-lg-5">
+
+        <!-- 景點照片 -->
+        <div class="col-sm-5 col-lg-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 col-lg-6" style="background-color: #fff; width: 80%;">
@@ -380,7 +384,7 @@
         </div>
     </div>
 
-<!-- -------------------------------------------------------------------------------------------------------- -->
+    <!-- -------------------------------------------------------------------------------------------------------- -->
 
 
     <br>
@@ -462,7 +466,10 @@
                         <p>
                             <a href="#!" class="text-reset ">旅遊資訊</a>
                         </p>
+                        
                     </div>
+
+
                     <!-- Grid column -->
 
                     <!-- Grid column -->
