@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     $("#datepicker").datepicker({
         minDate: 0, // 只能選擇當天及以後的日期
         dateFormat: 'yy/mm/dd' // 按照年月日的順序顯示日期
@@ -6,65 +6,108 @@ $(function() {
 
     var spots = {
         taipei: [
-            { name: "101大樓", img: "https://api.housefeel.com.tw/wp-content/uploads/2021/10/230804%E5%8F%B0%E5%8C%97101-%E7%82%BA%E4%BB%80%E9%BA%BC%E5%8F%AF%E4%BB%A5%E8%93%8B%E9%80%99%E9%BA%BC%E9%AB%98%EF%BC%9F%E7%82%BA%E4%BB%80%E9%BA%BC%E5%B8%82%E4%B8%AD%E5%BF%83%E6%9C%89%E6%91%A9%E5%A4%A9%E5%A4%A7%E6%A8%93%EF%BC%9F%E5%8F%B0%E5%8C%97101%E8%88%88%E5%BB%BA%E6%95%85%E4%BA%8B%EF%BC%81.png", alt: "The peaks of High Tatras" },
-            { name: "木柵動物園", img: "https://tripool-article-production.s3.ap-southeast-1.amazonaws.com/uploads/article/cover_image/121/%E5%8F%B0%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92__%E6%9C%A8%E6%9F%B5%E5%8B%95%E7%89%A9%E5%9C%92_.png", alt: "The chalet at the Green mountain lake" },
-            { name: "士林夜市", img: "https://images.chinatimes.com/newsphoto/2020-11-13/1024/20201113004981.jpg", alt: "Shilin Night Market" },
-            { name: "故宮博物院", img: "https://www.travel.taipei/image/221739/?r=1637566579522", alt: "National Palace Museum" },
-            { name: "陽明山", img: "https://api.housefeel.com.tw/wp-content/uploads/2024/01/%E9%99%BD%E6%98%8E%E5%B1%B1%E8%8A%B1%E5%AD%A3-%E7%B6%B2%E7%AB%99%E7%B8%AE%E5%9C%96.png", alt: "Yangmingshan National Park" }
+            { name: "101大樓", img: "", alt: "Taipei 101" },
+            { name: "木柵動物園", img: "", alt: "Muzha Zoo" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            { name: "台北101/世貿", img: "", alt: "Taipei 101/World Trade Center" },
+            
+        ],
+        newtaipei: [
+            { name: "九份老街", img: "", alt: "Jiufen Old Street" },
+            { name: "淡水老街", img: "", alt: "Tamsui Old Street" }
+        ],
+        taoyuan: [
+            { name: "大溪老街", img: "", alt: "Daxi Old Street" },
+            { name: "小烏來天空步道", img: "", alt: "Xiao Wulai Sky Walk" }
         ],
         taichung: [
-            { name: "台中公園", img: "https://travel.taichung.gov.tw/Image/50424?r=637837893157956680", alt: "Planning the ascent" },
-            { name: "逢甲夜市", img: "https://travel.taichung.gov.tw/Image/31585/?r=1675152421040", alt: "On top of Kozi kopka" },
-            { name: "科學博物館", img: "https://travel.taichung.gov.tw/Image/31562?r=637837893159866678", alt: "National Museum of Natural Science" },
-            { name: "高美濕地", img: "https://www.taichung.gov.tw/media/548202/%E4%B8%96%E7%95%8C%E9%A6%B3%E5%90%8D%E6%9C%80%E7%BE%8E%E5%A4%95%E9%99%BD-%E5%AE%89%E5%BF%83%E9%81%8A%E9%AB%98%E7%BE%8E%E6%BF%95%E5%9C%B0%E7%99%82%E7%99%92%E8%BA%AB%E5%BF%83%E9%9D%88.jpg", alt: "Gaomei Wetlands" },
-            { name: "國家歌劇院", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/National_Taichung_Theater_aerial_view_2019.jpg/375px-National_Taichung_Theater_aerial_view_2019.jpg", alt: "National Taichung Theater" }
+            { name: "台中公園", img: "", alt: "Taichung Park" },
+            { name: "逢甲夜市", img: "", alt: "Fengjia Night Market" }
+        ],
+        tainan: [
+            { name: "赤崁樓", img: "", alt: "Chihkan Tower" },
+            { name: "安平古堡", img: "", alt: "Anping Fort" }
         ],
         kaohsiung: [
-            { name: "愛河", img: "https://i0.wp.com/farm6.staticflickr.com/5590/14270428627_3dca7acb42_c.jpg?w=1100&quality=99&ssl=1", alt: "On top of Love River" },
-            { name: "美麗島捷運站", img: "https://images.chinatimes.com/newsphoto/2020-07-28/1024/20200728003432.jpg", alt: "Formosa Boulevard MRT Station" },
-            { name: "蓮池潭", img: "https://tripool-article-production.s3.ap-southeast-1.amazonaws.com/uploads/article/cover_image/101/Lotus_Pond__%E8%93%AE%E6%B1%A0%E6%BD%AD_-040.jpg", alt: "Lotus Pond" },
-            { name: "西子灣", img: "https://www.taiwan.net.tw/pic.ashx?qp=1/big_scenic_spots/pic_624_15.jpg&sizetype=3", alt: "Sizihwan Bay" },
-            { name: "六合夜市", img: "https://cdn2.ettoday.net/images/3873/d3873357.jpg", alt: "Liuhe Night Market" }
+            { name: "愛河", img: "", alt: "Love River" },
+            { name: "美麗島捷運站", img: "", alt: "Formosa Boulevard MRT Station" }
+        ],
+        keelung: [
+            { name: "基隆廟口夜市", img: "", alt: "Keelung Miaokou Night Market" },
+            { name: "和平島公園", img: "", alt: "Heping Island Park" }
+        ],
+        hsinchu: [
+            { name: "新竹城隍廟", img: "", alt: "Hsinchu City God Temple" },
+            { name: "新竹東門城", img: "", alt: "Hsinchu East Gate" }
+        ],
+        miaoli: [
+            { name: "三義木雕博物館", img: "", alt: "Sanyi Wood Sculpture Museum" },
+            { name: "鯉魚潭", img: "", alt: "Liyu Lake" }
+        ],
+        changhua: [
+            { name: "八卦山大佛", img: "", alt: "Baguashan Great Buddha" },
+            { name: "鹿港老街", img: "", alt: "Lukang Old Street" }
+        ],
+        nantou: [
+            { name: "日月潭", img: "", alt: "Sun Moon Lake" },
+            { name: "清境農場", img: "", alt: "Cingjing Farm" }
+        ],
+        yunlin: [
+            { name: "北港朝天宮", img: "", alt: "Beigang Chao Tian Temple" },
+            { name: "劍湖山世界", img: "", alt: "Janfusun Fancyworld" }
+        ],
+        chiayi: [
+            { name: "阿里山", img: "", alt: "Alishan" },
+            { name: "檜意森活村", img: "", alt: "Hinoki Village" }
+        ],
+        pingtung: [
+            { name: "墾丁國家公園", img: "", alt: "Kenting National Park" },
+            { name: "東港東隆宮", img: "", alt: "Donglong Temple" }
+        ],
+        yilan: [
+            { name: "羅東夜市", img: "", alt: "Luodong Night Market" },
+            { name: "幾米公園", img: "", alt: "Jimmy Park" }
+        ],
+        hualien: [
+            { name: "太魯閣國家公園", img: "", alt: "Taroko National Park" },
+            { name: "七星潭", img: "", alt: "Qixingtan Beach" }
+        ],
+        taitung: [
+            { name: "池上伯朗大道", img: "", alt: "Chishang Brown Boulevard" },
+            { name: "三仙台", img: "", alt: "Sanxiantai" }
+        ],
+        penghu: [
+            { name: "澎湖天后宮", img: "", alt: "Penghu Tianhou Temple" },
+            { name: "澎湖跨海大橋", img: "", alt: "Penghu Great Bridge" }
+        ],
+        kinmen: [
+            { name: "莒光樓", img: "", alt: "Juguang Tower" },
+            { name: "翟山坑道", img: "", alt: "Zhaishan Tunnel" }
+        ],
+        lienchiang: [
+            { name: "南竿清水古堡", img: "", alt: "Nangan Ching Shui Ancient Fort" },
+            { name: "北竿芹壁村", img: "", alt: "Beigan Qinbi Village" }
         ]
     };
+    
 
     // 清除行程表的函數
     function clearSchedule() {
         $('#first-day-morning, #first-day-afternoon, #first-day-evening, #first-day-night, #second-day-morning, #second-day-afternoon, #second-day-evening, #second-day-night, #third-day-morning, #third-day-afternoon, #third-day-evening, #third-day-night').empty();
     }
 
-    // 對地點選擇下拉菜單變更的事件監聽器
-    $('#locationSelect').change(function() {
-        clearSchedule();
-    });
-
-    // 對地點選擇下拉菜單變更的事件監聽器
-    $("#locationSelect").on("change", function() {
-        var location = $(this).val();
-        var gallery = $("#gallery");
-        gallery.empty();
-
-        if (location) {
-            // 遍歷所選地點中的每個景點，並創建包含景點信息的列表項
-            spots[location].forEach(function(spot) {
-                var listItem = `
-                    <li class="ui-widget-content ui-corner-tr m-3 shadow rounded p-3">
-                        <h5 class="ui-widget-header">${spot.name}</h5>
-                        <img src="${spot.img}" alt="${spot.alt}" width="96" height="72">
-                        <br>
-                        <a href="${spot.img}" title="查看較大的圖片" class="ui-icon ui-icon-zoomin">查看較大</a>
-                        <a href="#" title="刪除此圖片" class="ui-icon ui-icon-trash">刪除圖片</a>
-                    </li>`;
-                gallery.append(listItem);
-            });
-            initializeDraggable(); // 初始化圖庫項目的可拖動功能
-        }
-    });
-    
-
-    // 初始化圖庫項目的可拖動功能的函數
+    // 初始化可拖動功能的函數
     function initializeDraggable() {
-        // 使列表項目可拖動
         $("li", "#gallery").draggable({
             cancel: "a.ui-icon",
             revert: "invalid",
@@ -72,44 +115,81 @@ $(function() {
             helper: "clone",
             cursor: "move"
         });
+        // 設置圖庫的可放回去功能
+        $("#gallery").droppable({
+            accept: ".ui-draggable",
+            classes: {
+                "ui-droppable-active": "ui-state-highlight"
+            },
+            drop: function (event, ui) {
+                recycleImage(ui.draggable); // 將圖片回收
+            }
+        });
 
         var $trashAreas = $("#first-day-morning, #first-day-afternoon, #first-day-evening, #first-day-night, #second-day-morning, #second-day-afternoon, #second-day-evening, #second-day-night, #third-day-morning, #third-day-afternoon, #third-day-evening, #third-day-night");
 
-        // 使區域可放置
+        // 初始化每个区块的状态为未放置
+        var dropAreasStatus = {};
+        $trashAreas.each(function() {
+            dropAreasStatus[this.id] = false;
+        });
+        
+        // 检查是否所有区块都已经放置了图片
+        function checkAllAreasFilled() {
+            for (var areaId in dropAreasStatus) {
+                if (!dropAreasStatus[areaId]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
         $trashAreas.droppable({
             accept: "#gallery > li",
             classes: {
                 "ui-droppable-active": "ui-state-highlight"
             },
-            // 處理將項目拖放到區域的情況
-            drop: function(event, ui) {
+            drop: function (event, ui) {
                 var $trash = $(this);
                 var $existingItem = $trash.find("li");
-
+        
                 if ($existingItem.length) {
                     recycleImage($existingItem);
                 }
-
+        
                 deleteImage(ui.draggable, $trash);
+        
+                // 标记该区块已放置图片
+                dropAreasStatus[$trash.attr("id")] = true;
+        
+                // 检查是否所有区块都已经放置了图片，如果是，则启用确认核取方块
+                if (checkAllAreasFilled()) {
+                    $("#confirmCheckbox2").prop("disabled", false);
+                }
             }
         });
+        
 
-        // 顯示圖片的函數
+        // 刪除圖片的函數
         function deleteImage($item, $trash) {
             var recycle_icon = "<a href='#' title='回收此圖片' class='ui-icon ui-icon-refresh'>回收圖片</a>";
-            $item.fadeOut(function() {
-                $item.find("a.ui-icon-trash").remove();
+            $item.fadeOut(function () {
+                $item.find("a.ui-icon-arrowrefresh-1-s").remove();
                 $item.append(recycle_icon).appendTo($trash).fadeIn();
+
+                $item.find(".ui-icon-refresh").on("click", function () {    
+                    recycleImage($item);
+                });
             });
         }
 
         // 回收圖片的函數
         function recycleImage($item) {
-            var trash_icon = "<a href='#' title='刪除此圖片' class='ui-icon ui-icon-trash'>刪除圖片</a>";
-            $item.fadeOut(function() {
+            var trash_icon = "<a href='#' title='刪除此圖片' class='ui-icon ui-icon-arrowrefresh-1-s'>刪除圖片</a>";
+            $item.fadeOut(function () {
                 $item.find("a.ui-icon-refresh").remove().end()
                     .append(trash_icon)
-                    .appendTo("#gallery").fadeIn(function() {
+                    .appendTo("#gallery").fadeIn(function () {
                         $item.find('img').css('height', $item.data('original-height'));
                     });
 
@@ -121,50 +201,66 @@ $(function() {
                 });
             });
         }
-
-        // 點擊圖庫項目的事件監聽器
-        $("ul.gallery > li").on("click", function(event) {
-            var $item = $(this),
-                $target = $(event.target);
-
-            if ($target.is("a.ui-icon-trash")) {
-                deleteImage($item);
-            } else if ($target.is("a.ui-icon-zoomin")) {
-                viewLargerImage($target);
-            } else if ($target.is("a.ui-icon-refresh")) {
-                recycleImage($item);
-            }
-            return false;
-        });
-
-        // 查看較大圖片的函數
-        function viewLargerImage($link) {
-            var src = $link.attr("href"),
-                title = $link.siblings("img").attr("alt"),
-                $modal = $("img[src$='" + src + "']");
-
-            if ($modal.length) {
-                $modal.dialog("open");
-            } else {
-                var img = $("<img alt='" + title + "' width='384' height='288' style='display: none; padding: 8px;' />")
-                    .attr("src", src).appendTo("body");
-                setTimeout(function() {
-                    img.dialog({
-                        title: title,
-                        width: 40,
-                        modal: true
-                    });
-                }, 1);
-            }
-        }
     }
 
-    initializeDraggable(); // 初始化圖庫項目的可拖動功能
+    // 對地點選擇下拉菜單變更的事件監聽器
+    $("#locationSelect").on("change", function () {
+        var location = $(this).val();
+        var gallery = $("#gallery");
+        gallery.empty();
 
-    // 導遊搜索按鈕點擊事件的監聽器
-    const button = document.getElementById('findbtn');
-    button.addEventListener('click', function() {
-        window.location.href = '找導遊.html';
+        if (location) {
+            spots[location].forEach(spot => {
+                var listItem = `
+                    <li class="ui-widget-content ui-corner-tr">
+                        <h5 class="ui-widget-header">${spot.name}</h5>
+                        <img src="${spot.img}" alt="${spot.alt}" width="96" height="72">
+                        <br>
+                        <a href="${spot.img}" title="查看較大的圖片" class="ui-icon ui-icon-zoomin">查看較大</a>
+                    </li>`;
+                gallery.append(listItem);
+            });
+            initializeDraggable();
+        }
     });
+
+    // 對地點選擇下拉菜單變更的事件監聽器
+    $('#locationSelect').change(clearSchedule);
+
+    // 點擊圖庫項目的事件監聽器
+    $("li").on("click", function (event) {
+        var $item = $(this),
+            $target = $(event.target);
+
+        if ($target.is("a.ui-icon-arrowrefresh-1-s")) {
+            deleteImage($item);
+        } else if ($target.is("a.ui-icon-zoomin")) {
+            viewLargerImage($target);
+        } else if ($target.is("a.ui-icon-refresh")) {
+            recycleImage($item);
+        }
+        return false;
     });
+
+    // 查看較大圖片的函數
+    function viewLargerImage($link) {
+        var src = $link.attr("href"),
+            title = $link.siblings("img").attr("alt"),
+            $modal = $("img[src$='" + src + "']");
+
+        if ($modal.length) {
+            $modal.dialog("open");
+        } else {
+            var img = $("<img alt='" + title + "' width='384' height='288' style='display: none; padding: 8px;' />")
+                .attr("src", src).appendTo("body");
+            setTimeout(function () {
+                img.dialog({
+                    title: title,
+                    width: 40,
+                    modal: true
+                });
+            }, 1);
+        }
+    }
+});
 

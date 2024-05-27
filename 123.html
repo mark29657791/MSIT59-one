@@ -1,114 +1,111 @@
-function initializeDraggable() {
-    // 使列表項目可拖動
-    $("li", "#gallery").draggable({
-        cancel: "a.ui-icon",
-        revert: "invalid",
-        containment: "document",
-        helper: "clone",
-        cursor: "move"
-    });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .panel {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="accordionContainer" class="col-lg-6">
+        <button class="accordion" id="day1">第一天</button>
+        <div class="panel" id="panel1">
+            <div class="row justify-content-center m-3 text-center">
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>早上</h4>
+                    <div id="first-day-morning" class="ui-widget-content ui-state-default"></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
+                    <div id="first-day-afternoon" class="ui-widget-content ui-state-default"></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
+                    <div id="first-day-evening" class="ui-widget-content ui-state-default"></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
+                    <div id="first-day-night" class="ui-widget-content ui-state-default"></div>
+                </div>
+            </div>
+        </div>
+        <button class="accordion" id="day2">第二天</button>
+        <div class="panel" id="panel2">
+            <div class="row justify-content-center m-3 text-center">
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>早上</h4>
+                    <div id="second-day-morning" class="ui-widget-content ui-state-default"></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
+                    <div id="second-day-afternoon" class="ui-widget-content ui-state-default"></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
+                    <div id="second-day-evening" class="ui-widget-content ui-state-default"></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
+                    <div id="second-day-night" class="ui-widget-content ui-state-default"></div>
+                </div>
+            </div>
+        </div>
+        <button class="accordion" id="day3">第三天</button>
+        <div class="panel" id="panel3">
+            <div class="row justify-content-center m-3 text-center">
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>早上</h4>
+                    <div id="third-day-morning" class="ui-widget-content ui-state-default"></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
+                    <div id="third-day-afternoon" class="ui-widget-content ui-state-default"></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
+                    <div id="third-day-evening" class="ui-widget-content ui-state-default"></div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
+                    <div id="third-day-night" class="ui-widget-content ui-state-default"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    var $scheduleAreas = $("#first-day-morning, #first-day-afternoon, #first-day-evening, #first-day-night, #second-day-morning, #second-day-afternoon, #second-day-evening, #second-day-night, #third-day-morning, #third-day-afternoon, #third-day-evening, #third-day-night");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var accordions = document.getElementsByClassName("accordion");
+            var panels = document.getElementsByClassName("panel");
 
-    // 使區域可放置
-    $scheduleAreas.droppable({
-        accept: "#gallery > li",
-        classes: {
-            "ui-droppable-active": "ui-state-highlight"
-        },
-        // 處理將項目拖放到區域的情況
-        drop: function(event, ui) {
-            var $schedule = $(this);
-            var $existingItem = $schedule.find("li");
+            for (var i = 0; i < accordions.length; i++) {
+                accordions[i].addEventListener("click", function () {
+                    // Close all panels
+                    for (var j = 0; j < panels.length; j++) {
+                        panels[j].style.display = "none";
+                    }
 
-            if ($existingItem.length) {
-                recycleImage($existingItem);
+                    // Remove active class from all accordions
+                    for (var k = 0; k < accordions.length; k++) {
+                        accordions[k].classList.remove("active");
+                    }
+
+                    // Toggle the current panel
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                        this.classList.add("active");
+                    }
+                });
             }
-
-            deleteImage(ui.draggable, $schedule);
-        }
-    });
-
-    // 回收圖片的函數
-    function recycleImage($item) {
-        var trash_icon = "<a href='#' title='刪除此圖片' class='ui-icon ui-icon-trash'>刪除圖片</a>";
-        $item.fadeOut(function() {
-            $item.find("a.ui-icon-refresh").remove().end()
-                .append(trash_icon)
-                .appendTo("#gallery").fadeIn(function() {
-                    $item.find('img').css('height', $item.data('original-height'));
-                });
-
-            $item.draggable({
-                revert: true,
-                containment: "document",
-                cursor: "move",
-                helper: "original"
-            });
         });
-    }
-
-    // 點擊圖庫項目的事件監聽器
-    $("ul.gallery > li").on("click", function(event) {
-        var $item = $(this),
-            $target = $(event.target);
-
-        if ($target.is("a.ui-icon-trash")) {
-            deleteImage($item);
-        } else if ($target.is("a.ui-icon-zoomin")) {
-            viewLargerImage($target);
-        } else if ($target.is("a.ui-icon-refresh")) {
-            recycleImage($item);
-        }
-        return false;
-    });
-
-    function deleteImage($item, $target) {
-        $item.fadeOut(function() {
-            var $list = $("ul", $target).length ?
-                $("ul", $target) :
-                $("<ul class='gallery ui-helper-reset'/>").appendTo($target);
-
-            $item.appendTo($list).fadeIn(function() {
-                $item
-                    .animate({ width: "96px" })
-                    .find("img")
-                    .animate({ height: "72px" });
-            });
-        });
-    }
-
-    function viewLargerImage($link) {
-        var src = $link.attr("href"),
-            $modal = $("img[src$='" + src + "']");
-
-        if ($modal.length) {
-            $modal.dialog("open");
-        } else {
-            var img = $("<img alt='圖片' style='display: none; padding: 8px;' />")
-                .attr("src", src)
-                .appendTo("body");
-            setTimeout(function() {
-                img.dialog({
-                    title: "圖片預覽",
-                    width: 400,
-                    modal: true
-                });
-            }, 1);
-        }
-    }
-}
-
-$(document).ready(function() {
-    initializeDraggable();
-
-    $(".accordion").click(function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-    });
-});
+    </script>
+</body>
+</html>

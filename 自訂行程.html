@@ -112,7 +112,7 @@
             border: 1px solid #c5c5c5;
             background: #fff;
             border-radius: 10px;
-            padding: 10px;
+            /* padding: 10px; */
             min-height: 150px;
             animation: fadeIn 1.5s ease-in-out;
         }
@@ -122,7 +122,7 @@
             background: #ffffcc;
             color: #333;
             border-radius: 10px;
-            padding: 10px;
+            /* padding: 10px; */
             animation: fadeIn 1.5s ease-in-out;
         }
 
@@ -175,11 +175,16 @@
         }
 
         .panel {
-            padding: 0 18px;
+            padding: 0 0px;
             background-color: white;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.2s ease-out;
+        }
+
+        .container {
+            max-height: 300px;
+            overflow-y: auto;
         }
     </style>
 </head>
@@ -234,14 +239,32 @@
             <select class="form-select" id="locationSelect">
                 <option value="">地點</option>
                 <option value="taipei">台北</option>
+                <option value="newtaipei">新北</option>
+                <option value="taoyuan">桃園</option>
                 <option value="taichung">台中</option>
+                <option value="tainan">台南</option>
                 <option value="kaohsiung">高雄</option>
+                <option value="keelung">基隆</option>
+                <option value="hsinchu">新竹</option>
+                <option value="miaoli">苗栗</option>
+                <option value="changhua">彰化</option>
+                <option value="nantou">南投</option>
+                <option value="yunlin">雲林</option>
+                <option value="chiayi">嘉義</option>
+                <option value="pingtung">屏東</option>
+                <option value="yilan">宜蘭</option>
+                <option value="hualien">花蓮</option>
+                <option value="taitung">台東</option>
+                <option value="penghu">澎湖</option>
+                <option value="kinmen">金門</option>
+                <option value="lienchiang">連江</option>
             </select>
+
         </div>
 
         <!-- 人數 -->
         <div class="col-md-auto">
-            <select class="form-select">
+            <select class="form-select" id="peopleSelect">
                 <option value="">人數</option>
                 <option value="1">3人以上</option>
                 <option value="2">4人以上</option>
@@ -274,115 +297,89 @@
 
 
     <!-- -------------------------------------------------------------------------------------------------------- -->
-
     <!-- 顯示行程 -->
-    <div class="row align-items-center m-3 ">
-        <div id="accordionContainer" class="col-sm-5 col-lg-7">
+    <!-- 顯示行程 -->
+
+    <div class="row align-items-center m-3 text-center">
+        <div class="col-lg-1"></div>
+        <div id="accordionContainer" class="col-lg-6">
             <button class="accordion" id="day1">第一天</button>
             <div class="panel" id="panel1">
-                <div class="col-sm-5 col-lg-12">
-                    <div class="d-flex justify-content-center m-3 p-3 ">
-                        <div class="row justify-content-center m-3 text-center" style="width: 100%;">
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon  ui-icon-calendar"></span>早上</h4>
-                                <div id="first-day-morning" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
-                                <div id="first-day-afternoon" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
-                                <div id="first-day-evening" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
-                                <div id="first-day-night" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                        </div>
+                <div class="row justify-content-center m-3 text-center ">
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>早上</h4>
+                        <div id="first-day-morning" class="ui-widget-content ui-state-default"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
+                        <div id="first-day-afternoon" class="ui-widget-content ui-state-default"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
+                        <div id="first-day-evening" class="ui-widget-content ui-state-default"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
+                        <div id="first-day-night" class="ui-widget-content ui-state-default"></div>
                     </div>
                 </div>
             </div>
-
             <button class="accordion" id="day2">第二天</button>
             <div class="panel" id="panel2">
-                <div class="col-sm-5 col-lg-12">
-                    <div class="d-flex justify-content-center m-3 p-3 ">
-                        <div class="row justify-content-center m-3 text-center" style="width: 100%;">
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon  ui-icon-calendar"></span>早上</h4>
-                                <div id="second-day-morning" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
-                                <div id="second-day-afternoon" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
-                                <div id="second-day-evening" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
-                                <div id="second-day-night" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                        </div>
+                <div class="row justify-content-center m-3 text-center">
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>早上</h4>
+                        <div id="second-day-morning" class="ui-widget-content ui-state-default"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
+                        <div id="second-day-afternoon" class="ui-widget-content ui-state-default"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
+                        <div id="second-day-evening" class="ui-widget-content ui-state-default"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
+                        <div id="second-day-night" class="ui-widget-content ui-state-default"></div>
                     </div>
                 </div>
             </div>
-
             <button class="accordion" id="day3">第三天</button>
             <div class="panel" id="panel3">
-                <div class="col-sm-5 col-lg-12">
-                    <div class="d-flex justify-content-center m-3 p-3 ">
-                        <div class="row justify-content-center m-3 text-center" style="width: 100%;">
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon  ui-icon-calendar"></span>早上</h4>
-                                <div id="third-day-morning" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
-                                <div id="third-day-afternoon" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
-                                <div id="third-day-evening" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
-                                <div id="third-day-night" class="ui-widget-content ui-state-default">
-                                </div>
-                            </div>
-                        </div>
+                <div class="row justify-content-center m-3 text-center">
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>早上</h4>
+                        <div id="third-day-morning" class="ui-widget-content ui-state-default"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>下午</h4>
+                        <div id="third-day-afternoon" class="ui-widget-content ui-state-default"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>傍晚</h4>
+                        <div id="third-day-evening" class="ui-widget-content ui-state-default"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-calendar"></span>晚上</h4>
+                        <div id="third-day-night" class="ui-widget-content ui-state-default"></div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- 景點照片 -->
-        <div class="col-sm-5 col-lg-5">
-            <div class="container">
+        <div class="col-lg-4">
+            <div class="container rounded-3" style="background-color: #4e5482; height: 100%;">
                 <div class="row justify-content-center">
-                    <div class="col-12 col-md-8 col-lg-6" style="background-color: #fff; width: 80%;">
-                        <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-                            <!-- 動態添加景點 -->
-                        </ul>
+                    <div class="col-md-8" style="background-color: #fff3f3;">
+                        <ul id="gallery" class="gallery list-unstyled"></ul>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-lg-1"></div>
     </div>
+
 
     <!-- -------------------------------------------------------------------------------------------------------- -->
 
@@ -390,10 +387,24 @@
     <br>
     <!-- 找導遊按鈕 -->
     <div class="row m-3">
-        <div class="col-8"></div>
+        <div class="col-3"></div>
+        <div class="col-5">
+            <input class="form-check-input" type="checkbox" value="" id="confirmCheckbox" disabled>
+            <label class="form-check-label" for="confirmCheckbox">
+                我已確認以上內容都正確
+            </label>
+            <!-- 增加判斷行程放置的checkbox -->
+            <input class="form-check-input" type="checkbox" value="" id="confirmCheckbox2" disabled>
+            <label class="form-check-label" for="confirmCheckbox2">
+                我已確認景點安排都正確
+            </label>
+        </div>
         <button class="btn btn-primary btn-block col-1 shadow" id="findbtn">尋找導遊</button>
         <div class="col-3"></div>
     </div>
+    <br>
+    <br>
+
 
     <!-- 頁尾 -->
     <!-- Footer -->
@@ -466,8 +477,9 @@
                         <p>
                             <a href="#!" class="text-reset ">旅遊資訊</a>
                         </p>
-                        
+
                     </div>
+
 
 
                     <!-- Grid column -->
@@ -508,23 +520,66 @@
     <script>
         // 換畫面
         document.getElementById("findbtn").addEventListener("click", function () {
-            window.location.href = "找導遊.html";
-        });
-        var acc = document.getElementsByClassName("accordion");
-        var i;
+            var confirmCheckbox = document.getElementById("confirmCheckbox");
+            var confirmCheckbox2 = document.getElementById("confirmCheckbox2");
 
+            // 都被選到才會跳轉
+            if (confirmCheckbox.checked && confirmCheckbox2.checked) {
+                window.location.href = "找導遊.html";
+            } else {
+                // 如果有沒有被勾選就會顯示警告
+                alert("請先勾選所有確認框");
+            }
+        });
+
+        // 打勾事件 select的部分
+        const locationSelect = document.getElementById('locationSelect');
+        const peopleSelect = document.getElementById('peopleSelect');
+        const daysSelect = document.getElementById('themeSelect');
+        const confirmCheckbox = document.getElementById('confirmCheckbox');
+        const datepicker = document.getElementById('datepicker');
+
+        function updateCheckboxState() {
+            const locationValue = locationSelect.value;
+            const peopleValue = peopleSelect.value;
+            const daysValue = daysSelect.value;
+            const departureDate = datepicker.value;
+
+            if (locationValue === '' || peopleValue === '' || daysValue === '' || departureDate === '') {
+                confirmCheckbox.disabled = true;
+                confirmCheckbox.checked = false;
+            } else {
+                confirmCheckbox.disabled = false;
+                confirmCheckbox.checked = false;
+            }
+        }
+
+        locationSelect.addEventListener('change', updateCheckboxState);
+        peopleSelect.addEventListener('change', updateCheckboxState);
+        daysSelect.addEventListener('change', updateCheckboxState);
+        datepicker.addEventListener('change', updateCheckboxState);
 
 
 
         // 手風琴
+        var acc = document.getElementsByClassName("accordion");
+        var i;
         for (i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
                 var panel = this.nextElementSibling;
+                // 如果面板已经打开，就关闭它
                 if (panel.style.maxHeight) {
                     panel.style.maxHeight = null;
+                    this.classList.remove("active");
                 } else {
+                    // 否则，先关闭所有面板，再打开当前面板
+                    var panels = document.getElementsByClassName("panel");
+                    for (var j = 0; j < panels.length; j++) {
+                        panels[j].style.maxHeight = null;
+                        panels[j].previousElementSibling.classList.remove("active");
+                    }
                     panel.style.maxHeight = panel.scrollHeight + "px";
+                    this.classList.add("active");
                 }
             });
         }
@@ -543,6 +598,8 @@
                 }
             }
         });
+
+
 
     </script>
 </body>
