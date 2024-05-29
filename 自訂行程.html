@@ -31,6 +31,10 @@
 
     <!-- css-->
     <style>
+        .checkbox-container {
+            display: none;
+        }
+
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -324,6 +328,10 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <div id="firstDayContainer" class="checkbox-container col-3">
+                <input type="checkbox" id="firstDayConfirmCheckbox" disabled> 我已確定第一天行程
+            </div>
             <button class="accordion" id="day2">第二天</button>
             <div class="panel" id="panel2">
                 <div class="row justify-content-center m-3 text-center">
@@ -344,6 +352,10 @@
                         <div id="second-day-night" class="ui-widget-content ui-state-default"></div>
                     </div>
                 </div>
+            </div>
+            <br>
+            <div id="secondDayContainer" class="checkbox-container col-3">
+                <input type="checkbox" id="secondDayConfirmCheckbox" disabled> 我已確定第二天行程
             </div>
             <button class="accordion" id="day3">第三天</button>
             <div class="panel" id="panel3">
@@ -366,7 +378,12 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <div id="thirdDayContainer" class="checkbox-container col-3">
+                <input type="checkbox" id="thirdDayConfirmCheckbox" disabled> 我已確定第三天行程
+            </div>
         </div>
+
         <!-- 景點照片 -->
         <div class="col-lg-4">
             <div class="container rounded-3" style="background-color: #4e5482; height: 100%;">
@@ -387,21 +404,23 @@
     <br>
     <!-- 找導遊按鈕 -->
     <div class="row m-3">
-        <div class="col-3"></div>
-        <div class="col-5">
+        <div class="col-1"></div>
+        <div class="col-2">
             <input class="form-check-input" type="checkbox" value="" id="confirmCheckbox" disabled>
             <label class="form-check-label" for="confirmCheckbox">
                 我已確認以上內容都正確
             </label>
-            <!-- 增加判斷行程放置的checkbox -->
-            <input class="form-check-input" type="checkbox" value="" id="confirmCheckbox2" disabled>
-            <label class="form-check-label" for="confirmCheckbox2">
-                我已確認景點安排都正確
-            </label>
         </div>
-        <button class="btn btn-primary btn-block col-1 shadow" id="findbtn">尋找導遊</button>
-        <div class="col-3"></div>
     </div>
+    <div class="row m-3">
+        <div class="col-8"></div>
+        <button class="btn btn-primary btn-block col-2 shadow" id="findbtn">尋找導遊</button>
+        <div class="col-2"></div>
+    </div>
+
+    <br>
+    <br>
+    <br>
     <br>
     <br>
 
@@ -518,21 +537,53 @@
 
 
     <script>
-        // 換畫面
+        //出遊天數 變動核取框
+        document.getElementById('themeSelect').addEventListener('change', function () {
+            var value = this.value;
+            document.getElementById('firstDayContainer').style.display = 'none';
+            document.getElementById('secondDayContainer').style.display = 'none';
+            document.getElementById('thirdDayContainer').style.display = 'none';
+
+            if (value === '1') {
+                document.getElementById('firstDayContainer').style.display = 'block';
+            } else if (value === '2') {
+                document.getElementById('firstDayContainer').style.display = 'block';
+                document.getElementById('secondDayContainer').style.display = 'block';
+            } else if (value === '3') {
+                document.getElementById('firstDayContainer').style.display = 'block';
+                document.getElementById('secondDayContainer').style.display = 'block';
+                document.getElementById('thirdDayContainer').style.display = 'block';
+            }
+        });
+        // 換畫面要勾哪些的邏輯
         document.getElementById("findbtn").addEventListener("click", function () {
             var confirmCheckbox = document.getElementById("confirmCheckbox");
-            var confirmCheckbox2 = document.getElementById("confirmCheckbox2");
+            var firstDayConfirmCheckbox = document.getElementById("firstDayConfirmCheckbox");
+            var secondDayConfirmCheckbox = document.getElementById("secondDayConfirmCheckbox");
+            var thirdDayConfirmCheckbox = document.getElementById("thirdDayConfirmCheckbox");
 
-            // 都被選到才會跳轉
-            if (confirmCheckbox.checked && confirmCheckbox2.checked) {
-                window.location.href = "找導遊.html";
+            if (confirmCheckbox.checked) {
+                if (firstDayConfirmCheckbox.checked && secondDayConfirmCheckbox.checked && thirdDayConfirmCheckbox.checked) {
+                    // 三日遊勾選
+                    window.location.href = "找導遊.html";
+                } else if (firstDayConfirmCheckbox.checked && secondDayConfirmCheckbox.checked) {
+                    // 二日遊勾選
+                    window.location.href = "找導遊.html";
+                } else if (firstDayConfirmCheckbox.checked) {
+                    // 一日遊勾選
+                    window.location.href = "找導遊.html";
+                } else {
+                    // 如果沒有任何一天被勾選就會顯示警告
+                    alert("請確定您的資訊都已填寫");
+                }
             } else {
-                // 如果有沒有被勾選就會顯示警告
-                alert("請先勾選所有確認框");
+                // 如果確認核取方塊未被勾選就會顯示警告
+                alert("請確定您的資訊都已填寫");
             }
         });
 
-        // 打勾事件 select的部分
+
+        // 地點人數日期 幾天都要選過 才可以啟用核取方塊
         const locationSelect = document.getElementById('locationSelect');
         const peopleSelect = document.getElementById('peopleSelect');
         const daysSelect = document.getElementById('themeSelect');
@@ -561,7 +612,7 @@
 
 
 
-        // 手風琴
+        // 手風琴動畫
         var acc = document.getElementsByClassName("accordion");
         var i;
         for (i = 0; i < acc.length; i++) {

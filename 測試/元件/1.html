@@ -1,70 +1,51 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>趣哪-自訂行程</title>
-    <!-- 字體 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <title>Travel Plan</title>
     <style>
-        body {
-            padding-top: 56px; /* 讓內容不會被固定導航欄遮住 */
+        /* Hide checkboxes by default */
+        .checkbox-container {
+            display: none;
         }
     </style>
 </head>
-
 <body>
-    <!-- 頁首 -->
-    <header>
-        <div class="container-fluid px-0">
-            <div class="row row-cols-1">
-                <div class="col">
-                    <div class="col fixed-top"> <!-- 固定上方 -->
-                        <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
-                            style="background-color: rgba(255, 201, 249, 0.2);">
-                            <div class="container-fluid">
-                                <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo" width="200px"></a>
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">旅遊資訊</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">自訂行程</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">景點介紹</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">會員登入</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <select class="form-select" id="themeSelect">
+        <option value="">出遊天數</option>
+        <option value="1">一日遊</option>
+        <option value="2">二日遊</option>
+        <option value="3">三日遊</option>
+    </select>
+    <div id="firstDayContainer" class="checkbox-container">
+        <input type="checkbox" id="firstDayConfirmCheckbox" disabled> 我已確定第一天行程
+    </div>
+    <div id="secondDayContainer" class="checkbox-container">
+        <input type="checkbox" id="secondDayConfirmCheckbox" disabled> 我已確定第二天行程
+    </div>
+    <div id="thirdDayContainer" class="checkbox-container">
+        <input type="checkbox" id="thirdDayConfirmCheckbox" disabled> 我已確定第三天行程
+    </div>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-q5/UB3bW33fpU/La4kOoaib9h0G1YMWyO9eBu5UOf+V6KE8HbG5tU1SDenni9wGb" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('themeSelect').addEventListener('change', function() {
+            var value = this.value;
+            document.getElementById('firstDayContainer').style.display = 'none';
+            document.getElementById('secondDayContainer').style.display = 'none';
+            document.getElementById('thirdDayContainer').style.display = 'none';
+            
+            if (value === '1') {
+                document.getElementById('firstDayContainer').style.display = 'block';
+            } else if (value === '2') {
+                document.getElementById('firstDayContainer').style.display = 'block';
+                document.getElementById('secondDayContainer').style.display = 'block';
+            } else if (value === '3') {
+                document.getElementById('firstDayContainer').style.display = 'block';
+                document.getElementById('secondDayContainer').style.display = 'block';
+                document.getElementById('thirdDayContainer').style.display = 'block';
+            }
+        });
+    </script>
 </body>
-
 </html>
