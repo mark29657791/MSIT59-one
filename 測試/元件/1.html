@@ -1,51 +1,71 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Plan</title>
-    <style>
-        /* Hide checkboxes by default */
-        .checkbox-container {
-            display: none;
-        }
-    </style>
+    <title>趣哪-自訂行程</title>
+    <!-- 字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="path/to/your/css/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/your/css/style.css">
+    <!-- JS -->
+    <script src="path/to/your/js/jquery.min.js" defer></script>
+    <script src="path/to/your/js/bootstrap.bundle.min.js" defer></script>
+    <script src="path/to/your/js/custom.js" defer></script>
 </head>
-<body>
-    <select class="form-select" id="themeSelect">
-        <option value="">出遊天數</option>
-        <option value="1">一日遊</option>
-        <option value="2">二日遊</option>
-        <option value="3">三日遊</option>
-    </select>
-    <div id="firstDayContainer" class="checkbox-container">
-        <input type="checkbox" id="firstDayConfirmCheckbox" disabled> 我已確定第一天行程
-    </div>
-    <div id="secondDayContainer" class="checkbox-container">
-        <input type="checkbox" id="secondDayConfirmCheckbox" disabled> 我已確定第二天行程
-    </div>
-    <div id="thirdDayContainer" class="checkbox-container">
-        <input type="checkbox" id="thirdDayConfirmCheckbox" disabled> 我已確定第三天行程
-    </div>
 
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">趣哪</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">自訂行程</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">熱門景點</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">聯絡我們</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <h1>自訂行程</h1>
+                    <p>開始規劃你的行程吧！</p>
+                    <!-- 其他內容 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-light text-center py-3">
+        <p>&copy; 2024 趣哪. 保留所有權利。</p>
+    </footer>
+
+    <!-- 內嵌JS（若必要） -->
     <script>
-        document.getElementById('themeSelect').addEventListener('change', function() {
-            var value = this.value;
-            document.getElementById('firstDayContainer').style.display = 'none';
-            document.getElementById('secondDayContainer').style.display = 'none';
-            document.getElementById('thirdDayContainer').style.display = 'none';
-            
-            if (value === '1') {
-                document.getElementById('firstDayContainer').style.display = 'block';
-            } else if (value === '2') {
-                document.getElementById('firstDayContainer').style.display = 'block';
-                document.getElementById('secondDayContainer').style.display = 'block';
-            } else if (value === '3') {
-                document.getElementById('firstDayContainer').style.display = 'block';
-                document.getElementById('secondDayContainer').style.display = 'block';
-                document.getElementById('thirdDayContainer').style.display = 'block';
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            // 你的JavaScript程式碼
         });
     </script>
 </body>
+
 </html>
