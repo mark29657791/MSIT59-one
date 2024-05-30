@@ -2,7 +2,7 @@ $(function () {
     // 選日期
     $("#datepicker").datepicker({
         minDate: 0,
-        dateFormat: 'yy/mm/dd'
+        dateFormat: 'yy-mm-dd'
     });
 
 
@@ -361,6 +361,7 @@ $(function () {
         $('#first-day-morning, #first-day-afternoon, #first-day-evening, #first-day-night, #second-day-morning, #second-day-afternoon, #second-day-evening, #second-day-night, #third-day-morning, #third-day-afternoon, #third-day-evening, #third-day-night').empty();
     }
 
+
     // 初始化可拖動功能的函數
     function initializeDraggable() {
         $("li", "#gallery").draggable({
@@ -562,8 +563,8 @@ $(function () {
     }
 
     // ---------------------------------------------
-       //出遊天數 變動核取框
-       document.getElementById('themeSelect').addEventListener('change', function () {
+    //出遊天數 變動核取框
+    document.getElementById('themeSelect').addEventListener('change', function () {
         var value = this.value;
         document.getElementById('firstDayContainer').style.display = 'none';
         document.getElementById('secondDayContainer').style.display = 'none';
@@ -643,12 +644,10 @@ $(function () {
     for (i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function () {
             var panel = this.nextElementSibling;
-            // 如果面板已经打开，就关闭它
             if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
                 this.classList.remove("active");
             } else {
-                // 否则，先关闭所有面板，再打开当前面板
                 var panels = document.getElementsByClassName("panel");
                 for (var j = 0; j < panels.length; j++) {
                     panels[j].style.maxHeight = null;
@@ -674,7 +673,22 @@ $(function () {
             }
         }
     });
+    // 讓行程不會跑掉
+    var day1Button = document.getElementById("day1");
+    var day2Button = document.getElementById("day2");
+    var day3Button = document.getElementById("day3");
+    day1Button.addEventListener("click", scrollToTop);
+    day2Button.addEventListener("click", scrollToTop);
+    day3Button.addEventListener("click", scrollToTop);
 
+    function scrollToTop() {
+        var accordionContainer = document.getElementById("accordionContainer");
+        var topPosition = accordionContainer.offsetTop - 100;
+        window.scrollTo({
+            top: topPosition,
+            behavior: 'smooth'
+        });
+    }
 
 
 });

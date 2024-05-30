@@ -24,6 +24,7 @@
 
 
 
+
     <!-- 自訂 -->
     <link rel="stylesheet" href="共用項目.css">
     <script src="行程.js"></script>
@@ -31,6 +32,7 @@
 
     <!-- css-->
     <style>
+        
         .checkbox-container {
             display: none;
         }
@@ -194,45 +196,47 @@
 </head>
 
 <body background="">
+    
     <!-- 頁首 -->
-    <header>
-        <div class="container-fluid px-0 ">
-            <div class="row row-cols-1">
-                <div class="col">
-                    <div class="col fixed-top"> <!-- 固定上方 -->
-                        <nav class="navbar navbar-expand-sm " id="head">
-                            <img src="logo.png" alt="" width="200px">
-                            <div class="container-fluid justify-content-end  px-0">
-                                <!-- 大小切換 -->
-                                <button type="button" class="btn btn-outline-secondary m-1" id="big">大</button>
-                                <button type="button" class="btn btn-outline-secondary m-2" id="sm">小</button>
-                                
-                                <!-- 頁首 -->
-                                <ul>
-
-                                </ul>
-                                <ul class="navbar-nav ">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">旅遊資訊</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">自訂行程</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">景點介紹</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">會員登入</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light " id="head">
+            <div class="container-fluid px-0">
+                <a class="navbar-brand" href="#">
+                    <img src="logo.png" alt="" width="200px">
+                </a>
+                <!-- 按鈕 -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--  -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-outline-secondary m-1" id="big">大</button>
+                        <button type="button" class="btn btn-outline-secondary m-2" id="sm">小</button>
                     </div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">旅遊資訊</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">自訂行程</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">景點介紹</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">會員登入</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
+    
 
 
     <!-- 標題 -->
-    <div class="nav-center" id="標題" style="color:#e3e5f4; background-color:#4e5482; font-size: 36px;margin-top: 5%;">
+    <div class="nav-center" id="標題" style="color:#e3e5f4; background-color:#4e5482; font-size: 36px;">
         自訂想去的行程
     </div>
 
@@ -271,9 +275,9 @@
         <div class="col-md-auto">
             <select class="form-select" id="peopleSelect">
                 <option value="">人數</option>
-                <option value="1">3人以上</option>
-                <option value="2">4人以上</option>
-                <option value="3">5人以上</option>
+                <option value="1">3</option>
+                <option value="2">4</option>
+                <option value="3">5</option>
             </select>
         </div>
 
@@ -288,8 +292,9 @@
         </div>
 
         <!-- 日期選擇器 -->
-        <label for="from" class="col-md-auto text-center" id="from1">出發日期:</label>
-        <input type="text" id="datepicker" class="form-control col-md-auto text-center " style="width: 200px;">
+        
+        <label for="from" class="col-md-auto col-sm-2" id="from1">出發日期:</label>
+        <input type="text" id="datepicker" class="form-control col-md-auto  col-sm-10 text-center" style="width: auto;">
     </div>
     </div>
     <!-- -------------------------------------------------------------------------------------------------------- -->
@@ -306,8 +311,8 @@
     <!-- 顯示行程 -->
 
     <div class="row align-items-center m-3 text-center">
-        <div class="col-lg-1"></div>
-        <div id="accordionContainer" class="col-lg-6">
+        <div class="col-lg-1 "></div>
+        <div id="accordionContainer" class="col-lg-6  col-md-6 col-sm-6" style="top: 150px;bottom:100px;">
             <button class="accordion" id="day1">第一天</button>
             <div class="panel" id="panel1">
                 <div class="row justify-content-center m-3 text-center ">
@@ -330,8 +335,8 @@
                 </div>
             </div>
             <br>
-            <div id="firstDayContainer" class="checkbox-container col-3">
-                <input type="checkbox" id="firstDayConfirmCheckbox" disabled> 我已確定第一天行程
+            <div id="firstDayContainer" class="checkbox-container col-3 col-md-3 col-sm-12">
+                <input type="checkbox" id="firstDayConfirmCheckbox" disabled > 我已確定第一天行程
             </div>
             <button class="accordion" id="day2">第二天</button>
             <div class="panel" id="panel2">
@@ -355,7 +360,7 @@
                 </div>
             </div>
             <br>
-            <div id="secondDayContainer" class="checkbox-container col-3">
+            <div id="secondDayContainer" class="checkbox-container col-3 col-md-3 col-sm-12">
                 <input type="checkbox" id="secondDayConfirmCheckbox" disabled> 我已確定第二天行程
             </div>
             <button class="accordion" id="day3">第三天</button>
@@ -380,36 +385,37 @@
                 </div>
             </div>
             <br>
-            <div id="thirdDayContainer" class="checkbox-container col-3">
+            <div id="thirdDayContainer" class="checkbox-container col-3 col-md-3 col-sm-12">
                 <input type="checkbox" id="thirdDayConfirmCheckbox" disabled> 我已確定第三天行程
             </div>
         </div>
 
         <!-- 景點照片 -->
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-5 col-sm-6" style="position: sticky; top: 200px;bottom:150px;">
             <div class="container rounded-3" style="background-color: #4e5482; height: 100%;">
                 <div class="row justify-content-center">
                     <div class="col-md-8" style="background-color: #f8e8ff;">
                         <ul id="gallery" class="gallery list-unstyled"></ul>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-1"></div>
     </div>
-
-
     <!-- -------------------------------------------------------------------------------------------------------- -->
 
 
+    
+    
     <br>
     <!-- 找導遊按鈕 -->
+    
     <div class="row m-3">
         <div class="col-1"></div>
-        <div class="col-2">
+        <div class="col-4">
             <input class="form-check-input" type="checkbox" value="" id="confirmCheckbox" disabled>
             <label class="form-check-label" for="confirmCheckbox">
-                我已確認以上內容都正確
+                我已確認以上內容都正確 
             </label>
         </div>
     </div>
@@ -418,14 +424,15 @@
         <button class="btn btn-primary btn-block col-2 shadow" id="findbtn">尋找導遊</button>
         <div class="col-2"></div>
     </div>
-
+    
     <br>
     <br>
     <br>
     <br>
     <br>
-
-
+    
+    
+    <!-- -------------------------------------------------------------------------------------------------------- -->
     <!-- 頁尾 -->
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-body-tertiary text-muted">
