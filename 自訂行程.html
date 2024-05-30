@@ -206,6 +206,7 @@
                                 <!-- 大小切換 -->
                                 <button type="button" class="btn btn-outline-secondary m-1" id="big">大</button>
                                 <button type="button" class="btn btn-outline-secondary m-2" id="sm">小</button>
+                                
                                 <!-- 頁首 -->
                                 <ul>
 
@@ -388,9 +389,9 @@
         <div class="col-lg-4">
             <div class="container rounded-3" style="background-color: #4e5482; height: 100%;">
                 <div class="row justify-content-center">
-                    <div class="col-md-8" style="background-color: #fff3f3;">
+                    <div class="col-md-8" style="background-color: #f8e8ff;">
                         <ul id="gallery" class="gallery list-unstyled"></ul>
-                    </div>
+                    </div>  
                 </div>
             </div>
         </div>
@@ -534,125 +535,6 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-
-
-    <script>
-        //出遊天數 變動核取框
-        document.getElementById('themeSelect').addEventListener('change', function () {
-            var value = this.value;
-            document.getElementById('firstDayContainer').style.display = 'none';
-            document.getElementById('secondDayContainer').style.display = 'none';
-            document.getElementById('thirdDayContainer').style.display = 'none';
-
-            if (value === '1') {
-                document.getElementById('firstDayContainer').style.display = 'block';
-            } else if (value === '2') {
-                document.getElementById('firstDayContainer').style.display = 'block';
-                document.getElementById('secondDayContainer').style.display = 'block';
-            } else if (value === '3') {
-                document.getElementById('firstDayContainer').style.display = 'block';
-                document.getElementById('secondDayContainer').style.display = 'block';
-                document.getElementById('thirdDayContainer').style.display = 'block';
-            }
-        });
-        // 換畫面要勾哪些的邏輯
-        document.getElementById("findbtn").addEventListener("click", function () {
-            var confirmCheckbox = document.getElementById("confirmCheckbox");
-            var firstDayConfirmCheckbox = document.getElementById("firstDayConfirmCheckbox");
-            var secondDayConfirmCheckbox = document.getElementById("secondDayConfirmCheckbox");
-            var thirdDayConfirmCheckbox = document.getElementById("thirdDayConfirmCheckbox");
-
-            if (confirmCheckbox.checked) {
-                if (firstDayConfirmCheckbox.checked && secondDayConfirmCheckbox.checked && thirdDayConfirmCheckbox.checked) {
-                    // 三日遊勾選
-                    window.location.href = "找導遊.html";
-                } else if (firstDayConfirmCheckbox.checked && secondDayConfirmCheckbox.checked) {
-                    // 二日遊勾選
-                    window.location.href = "找導遊.html";
-                } else if (firstDayConfirmCheckbox.checked) {
-                    // 一日遊勾選
-                    window.location.href = "找導遊.html";
-                } else {
-                    // 如果沒有任何一天被勾選就會顯示警告
-                    alert("請確定您的資訊都已填寫");
-                }
-            } else {
-                // 如果確認核取方塊未被勾選就會顯示警告
-                alert("請確定您的資訊都已填寫");
-            }
-        });
-
-
-        // 地點人數日期 幾天都要選過 才可以啟用核取方塊
-        const locationSelect = document.getElementById('locationSelect');
-        const peopleSelect = document.getElementById('peopleSelect');
-        const daysSelect = document.getElementById('themeSelect');
-        const confirmCheckbox = document.getElementById('confirmCheckbox');
-        const datepicker = document.getElementById('datepicker');
-
-        function updateCheckboxState() {
-            const locationValue = locationSelect.value;
-            const peopleValue = peopleSelect.value;
-            const daysValue = daysSelect.value;
-            const departureDate = datepicker.value;
-
-            if (locationValue === '' || peopleValue === '' || daysValue === '' || departureDate === '') {
-                confirmCheckbox.disabled = true;
-                confirmCheckbox.checked = false;
-            } else {
-                confirmCheckbox.disabled = false;
-                confirmCheckbox.checked = false;
-            }
-        }
-
-        locationSelect.addEventListener('change', updateCheckboxState);
-        peopleSelect.addEventListener('change', updateCheckboxState);
-        daysSelect.addEventListener('change', updateCheckboxState);
-        datepicker.addEventListener('change', updateCheckboxState);
-
-
-
-        // 手風琴動畫
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                var panel = this.nextElementSibling;
-                // 如果面板已经打开，就关闭它
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                    this.classList.remove("active");
-                } else {
-                    // 否则，先关闭所有面板，再打开当前面板
-                    var panels = document.getElementsByClassName("panel");
-                    for (var j = 0; j < panels.length; j++) {
-                        panels[j].style.maxHeight = null;
-                        panels[j].previousElementSibling.classList.remove("active");
-                    }
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                    this.classList.add("active");
-                }
-            });
-        }
-
-        document.getElementById('themeSelect').addEventListener('change', function () {
-            var days = parseInt(this.value, 10);
-            for (i = 1; i <= 3; i++) {
-                var dayButton = document.getElementById('day' + i);
-                var dayPanel = document.getElementById('panel' + i);
-                if (i <= days) {
-                    dayButton.style.display = 'block';
-                    dayPanel.style.display = 'block';
-                } else {
-                    dayButton.style.display = 'none';
-                    dayPanel.style.display = 'none';
-                }
-            }
-        });
-
-
-
-    </script>
 </body>
 
 </html>
