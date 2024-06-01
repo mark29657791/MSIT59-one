@@ -32,12 +32,22 @@
 
     footer
     {
-      background-color:#4e5482;
       color: #fefefe;
       text-align: center;
       padding: 10px;
       margin-bottom: 0;
       animation: fadeIn 3s ease-in-out;
+    }
+    .text-muted {
+      color: #dee0fb !important;
+      /* 淡紫色文本顏色 */
+    }
+    .bg-body-tertiary {
+      background-color: #4e5482 !important; /* 自定義背景顏色 */
+    }
+    .btn-primary {
+      background-color: #717ccd !important; /* 自定義背景顏色 */
+      border-color: #ffffff !important; /* 自定義邊框顏色 */
     }
 
     /* 標題 */

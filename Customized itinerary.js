@@ -2,7 +2,7 @@ $(function () {
     // 選日期
     $("#datepicker").datepicker({
         minDate: 0,
-        dateFormat: 'yy-mm-dd'
+        dateFormat: 'yy/mm/dd'
     });
 
 
@@ -466,6 +466,9 @@ $(function () {
             }
         });
 
+        // 
+
+
 
 
 
@@ -563,50 +566,81 @@ $(function () {
     }
 
     // ---------------------------------------------
-    //出遊天數 變動核取框
     document.getElementById('themeSelect').addEventListener('change', function () {
-        var value = this.value;
-        document.getElementById('firstDayContainer').style.display = 'none';
-        document.getElementById('secondDayContainer').style.display = 'none';
-        document.getElementById('thirdDayContainer').style.display = 'none';
+        const value = this.value;
+        const firstDayContainer = document.getElementById('firstDayContainer');
+        const secondDayContainer = document.getElementById('secondDayContainer');
+        const thirdDayContainer = document.getElementById('thirdDayContainer');
+        const day1Button = document.getElementById('day1');
+        const day2Button = document.getElementById('day2');
+        const day3Button = document.getElementById('day3');
+
+        // Reset all containers and buttons
+        [firstDayContainer, secondDayContainer, thirdDayContainer].forEach(container => container.style.display = 'none');
+        [day1Button, day2Button, day3Button].forEach(button => {
+            button.classList.add('disabled');
+            button.disabled = true;
+        });
 
         if (value === '1') {
-            document.getElementById('firstDayContainer').style.display = 'block';
+            firstDayContainer.style.display = 'block';
+            day1Button.classList.remove('disabled');
+            day1Button.disabled = false;
         } else if (value === '2') {
-            document.getElementById('firstDayContainer').style.display = 'block';
-            document.getElementById('secondDayContainer').style.display = 'block';
+            [firstDayContainer, secondDayContainer].forEach(container => container.style.display = 'block');
+            [day1Button, day2Button].forEach(button => {
+                button.classList.remove('disabled');
+                button.disabled = false;
+            });
         } else if (value === '3') {
-            document.getElementById('firstDayContainer').style.display = 'block';
-            document.getElementById('secondDayContainer').style.display = 'block';
-            document.getElementById('thirdDayContainer').style.display = 'block';
+            [firstDayContainer, secondDayContainer, thirdDayContainer].forEach(container => container.style.display = 'block');
+            [day1Button, day2Button, day3Button].forEach(button => {
+                button.classList.remove('disabled');
+                button.disabled = false;
+            });
         }
     });
-    // 換畫面要勾哪些的邏輯
-    document.getElementById("findbtn").addEventListener("click", function () {
-        var confirmCheckbox = document.getElementById("confirmCheckbox");
-        var firstDayConfirmCheckbox = document.getElementById("firstDayConfirmCheckbox");
-        var secondDayConfirmCheckbox = document.getElementById("secondDayConfirmCheckbox");
-        var thirdDayConfirmCheckbox = document.getElementById("thirdDayConfirmCheckbox");
 
-        if (confirmCheckbox.checked) {
+    document.getElementById("findbtn").addEventListener("click", function () {
+        const confirmCheckbox = document.getElementById("confirmCheckbox");
+        const firstDayConfirmCheckbox = document.getElementById("firstDayConfirmCheckbox");
+        const secondDayConfirmCheckbox = document.getElementById("secondDayConfirmCheckbox");
+        const thirdDayConfirmCheckbox = document.getElementById("thirdDayConfirmCheckbox");
+
+        if (!confirmCheckbox.checked) {
+            alert("你需要勾選《我確定行程》");
+            return;
+        }
+
+        // 判断主题选择
+        const themeSelectValue = document.getElementById('themeSelect').value;
+
+        if (themeSelectValue === '3') {
+            // 第三天选择，需要所有复选框都选中
             if (firstDayConfirmCheckbox.checked && secondDayConfirmCheckbox.checked && thirdDayConfirmCheckbox.checked) {
-                // 三日遊勾選
-                window.location.href = "找導遊.html";
-            } else if (firstDayConfirmCheckbox.checked && secondDayConfirmCheckbox.checked) {
-                // 二日遊勾選
-                window.location.href = "找導遊.html";
-            } else if (firstDayConfirmCheckbox.checked) {
-                // 一日遊勾選
-                window.location.href = "找導遊.html";
+                window.location.href = "Tourist guide.html";
             } else {
-                // 如果沒有任何一天被勾選就會顯示警告
-                alert("請確定您的資訊都已填寫");
+                alert("你需要勾選《我已確定前三天的行程》");
+            }
+        } else if (themeSelectValue === '2') {
+            // 第二天选择，只需要前两天复选框选中
+            if (firstDayConfirmCheckbox.checked && secondDayConfirmCheckbox.checked) {
+                window.location.href = "Tourist guide.html";
+            } else {
+                alert("你需要勾選《我已確定前兩天的行程》");
+            }
+        } else if (themeSelectValue === '1') {
+            // 第一天选择，只需要第一天复选框选中
+            if (firstDayConfirmCheckbox.checked) {
+                window.location.href = "Tourist guide.html";
+            } else {
+                alert("你需要勾選《我已確定第一天的行程》");
             }
         } else {
-            // 如果確認核取方塊未被勾選就會顯示警告
-            alert("請確定您的資訊都已填寫");
+            alert("請選擇一個有效的主題");
         }
     });
+
 
 
     // 地點人數日期 幾天都要選過 才可以啟用核取方塊
@@ -636,19 +670,23 @@ $(function () {
     daysSelect.addEventListener('change', updateCheckboxState);
     datepicker.addEventListener('change', updateCheckboxState);
 
-
-
-    // 手風琴動畫
+    // 初始化手風琴
     var acc = document.getElementsByClassName("accordion");
+    var panels = document.getElementsByClassName("panel");
     var i;
+
     for (i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function () {
+            if (this.classList.contains("disabled")) {
+                alert("請先選擇出遊天數");
+                return;
+            }
+
             var panel = this.nextElementSibling;
             if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
                 this.classList.remove("active");
             } else {
-                var panels = document.getElementsByClassName("panel");
                 for (var j = 0; j < panels.length; j++) {
                     panels[j].style.maxHeight = null;
                     panels[j].previousElementSibling.classList.remove("active");
@@ -659,6 +697,7 @@ $(function () {
         });
     }
 
+    // 出遊天數選擇
     document.getElementById('themeSelect').addEventListener('change', function () {
         var days = parseInt(this.value, 10);
         for (i = 1; i <= 3; i++) {
@@ -667,12 +706,17 @@ $(function () {
             if (i <= days) {
                 dayButton.style.display = 'block';
                 dayPanel.style.display = 'block';
+                dayButton.classList.remove("disabled");
+                dayButton.disabled = false;
             } else {
                 dayButton.style.display = 'none';
                 dayPanel.style.display = 'none';
+                dayButton.classList.add("disabled");
+                dayButton.disabled = true;
             }
         }
     });
+
     // 讓行程不會跑掉
     var day1Button = document.getElementById("day1");
     var day2Button = document.getElementById("day2");
@@ -691,5 +735,34 @@ $(function () {
     }
 
 
+
+
+    // 定義調整字體大小的函式
+    function adjustFontSize(size) {
+        // 調整根元素的字體大小
+        document.documentElement.style.fontSize = size;
+    }
+
+    // 獲取按鈕元素
+    var bigBtn = document.getElementById('big');
+    var smallBtn = document.getElementById('sm');
+
+    // 添加點擊事件監聽器，調整字體大小
+    bigBtn.addEventListener('click', function () {
+        adjustFontSize('20px'); // 設置大字體大小
+    });
+
+    smallBtn.addEventListener('click', function () {
+        adjustFontSize('16px'); // 設置小字體大小
+    });
+
+});
+
+
+
+$(document).ready(function () {
+    $(".navbar-toggler").click(function () {
+        $("#navbarNav").toggleClass("show");
+    });
 });
 

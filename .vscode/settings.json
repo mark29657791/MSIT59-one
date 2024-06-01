@@ -1,4 +1,5 @@
 {
     "codeium.aggressiveShutdown": true,
-    "codeium.searchMaxWorkspaceFileCount": 0
+    "codeium.searchMaxWorkspaceFileCount": 0,
+    "liveServer.settings.port": 5501
 }
