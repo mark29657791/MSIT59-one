@@ -766,3 +766,56 @@ $(document).ready(function () {
     });
 });
 
+
+// 
+$(function () {
+    // 設置可拖曳項目
+    $(".gallery li").draggable({
+        helper: "clone",
+        revert: "invalid"
+    });
+
+    // 設置放置區域
+    $(".ui-widget-content").droppable({
+        accept: ".gallery li",
+        drop: function (event, ui) {
+            var $this = $(this);
+            var item = ui.helper.clone();
+            $this.append(item);
+            
+            // 調用更新行程函數
+            updateItinerary();
+        }
+    });
+});
+
+function updateItinerary() {
+    var itinerary = {};
+
+    // 遍歷所有放置區域，收集數據
+    $(".ui-widget-content").each(function () {
+        var id = $(this).attr('id');
+        var activities = [];
+        
+        $(this).find("li").each(function () {
+            activities.push($(this).text());
+        });
+
+        itinerary[id] = activities;
+    });
+
+    // 使用 AJAX 發送數據到 MVC 控制器
+    $.ajax({
+        type: "POST",
+        url: "/Itinerary/Update",
+        data: JSON.stringify(itinerary),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            console.log("行程更新成功:", response);
+        },
+        error: function (error) {
+            console.error("行程更新失敗:", error);
+        }
+    });
+}
